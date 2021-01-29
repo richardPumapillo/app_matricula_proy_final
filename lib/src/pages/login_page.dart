@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
           child: TextField(
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-                icon: Icon(Icons.alternate_email, color: Colors.deepPurple),
+                icon: Icon(Icons.alternate_email, color: Colors.blue[700]),
                 hintText: 'ejemplo@correo.com',
                 labelText: 'Correo electrónico',
                 counterText: snapshot.data,
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
           child: TextField(
             obscureText: true,
             decoration: InputDecoration(
-                icon: Icon(Icons.lock_outline, color: Colors.deepPurple),
+                icon: Icon(Icons.lock_outline, color: Colors.blue[700]),
                 labelText: 'Contraseña',
                 counterText: snapshot.data,
                 errorText: snapshot.error),
@@ -124,7 +124,7 @@ class LoginPage extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
             elevation: 0.0,
-            color: Colors.deepPurple,
+            color: Colors.blue[700],
             textColor: Colors.white,
             onPressed: snapshot.hasData ? () => _login(bloc, context) : null);
       },
@@ -149,8 +149,10 @@ class LoginPage extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: <Color>[
-        Color.fromRGBO(63, 63, 156, 1.0),
-        Color.fromRGBO(90, 70, 178, 1.0)
+        // Color.fromRGBO(63, 63, 156, 1.0),
+        Color.fromRGBO(12, 104, 222, 1.0),
+        // Color.fromRGBO(90, 70, 178, 1.0)
+        Color.fromRGBO(39, 109, 199, 1.0)
       ])),
     );
 
@@ -174,9 +176,9 @@ class LoginPage extends StatelessWidget {
           padding: EdgeInsets.only(top: 80.0),
           child: Column(
             children: <Widget>[
-              Icon(Icons.person_pin_circle, color: Colors.white, size: 100.0),
+              Icon(Icons.school, color: Colors.white, size: 100.0),
               SizedBox(height: 10.0, width: double.infinity),
-              Text('Fernando Herrera',
+              Text('App Matricula UNMSM',
                   style: TextStyle(color: Colors.white, fontSize: 25.0))
             ],
           ),

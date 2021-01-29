@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
     return Dismissible(
         key: UniqueKey(),
         background: Container(
-          color: Colors.red,
+          color: Colors.blue[700],
         ),
         onDismissed: (direccion) {
           productosProvider.borrarProducto(producto.id);
@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
   _crearBoton(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.add),
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Colors.blue[700],
       onPressed: () => Navigator.pushNamed(context, 'producto'),
     );
   }

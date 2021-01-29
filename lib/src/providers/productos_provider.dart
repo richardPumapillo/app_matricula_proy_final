@@ -10,7 +10,7 @@ import 'package:mime_type/mime_type.dart';
 import 'package:app_matricula_proy_final/src/models/producto_model.dart';
 
 class ProductosProvider {
-  final String _url = 'https://flutter-varios.firebaseio.com';
+  final String _url = 'https://app-matricula-login-default-rtdb.firebaseio.com';
   final _prefs = new PreferenciasUsuario();
 
   Future<bool> crearProducto(ProductoModel producto) async {

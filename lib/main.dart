@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return Provider(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Material App',
+        title: 'App UNMSM',
         initialRoute: 'login',
         routes: {
           'login': (BuildContext context) => LoginPage(),
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           'producto': (BuildContext context) => ProductoPage(),
         },
         theme: ThemeData(
-          primaryColor: Colors.deepPurple,
+          primaryColor: Colors.blue[700],
         ),
       ),
     );

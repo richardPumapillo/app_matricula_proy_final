@@ -4,7 +4,8 @@ import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_u
 import 'package:http/http.dart' as http;
 
 class UsuarioProvider {
-  final String _firebaseToken = 'AIzaSyAO749eZf3E35cmxgZA06mRygilezkNVsM';
+  // final String _firebaseToken = 'AIzaSyAO749eZf3E35cmxgZA06mRygilezkNVsM';
+  final String _firebaseToken = 'AIzaSyBF7nYzGt09UT1bCYbkQzAq2_6jO-o3BRk';
   final _prefs = new PreferenciasUsuario();
 
   Future<Map<String, dynamic>> login(String email, String password) async {

@@ -31,7 +31,7 @@ class _ProductoPageState extends State<ProductoPage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Producto'),
+        title: Text('Curso'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.photo_size_select_actual),
@@ -67,11 +67,11 @@ class _ProductoPageState extends State<ProductoPage> {
     return TextFormField(
       initialValue: producto.titulo,
       textCapitalization: TextCapitalization.sentences,
-      decoration: InputDecoration(labelText: 'Producto'),
+      decoration: InputDecoration(labelText: 'Curso'),
       onSaved: (value) => producto.titulo = value,
       validator: (value) {
         if (value.length < 3) {
-          return 'Ingrese el nombre del producto';
+          return 'Ingrese el nombre del curso';
         } else {
           return null;
         }
@@ -99,7 +99,7 @@ class _ProductoPageState extends State<ProductoPage> {
     return SwitchListTile(
       value: producto.disponible,
       title: Text('Disponible'),
-      activeColor: Colors.deepPurple,
+      activeColor: Colors.blue[700],
       onChanged: (value) => setState(() {
         producto.disponible = value;
       }),
@@ -109,7 +109,7 @@ class _ProductoPageState extends State<ProductoPage> {
   Widget _crearBoton() {
     return RaisedButton.icon(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      color: Colors.deepPurple,
+      color: Colors.blue[700],
       textColor: Colors.white,
       label: Text('Guardar'),
       icon: Icon(Icons.save),
