@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:app_matricula_proy_final/src/models/producto_model.dart';
 
@@ -11,6 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Cursos')),
       body: _crearListado(),
+      drawer: AppDrawer(),
       floatingActionButton: _crearBoton(context),
     );
   }
