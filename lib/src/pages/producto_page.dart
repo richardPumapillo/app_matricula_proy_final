@@ -83,7 +83,7 @@ class _ProductoPageState extends State<ProductoPage> {
     return TextFormField(
       initialValue: producto.valor.toString(),
       keyboardType: TextInputType.numberWithOptions(decimal: true),
-      decoration: InputDecoration(labelText: 'Precio'),
+      decoration: InputDecoration(labelText: 'Creditos'),
       onSaved: (value) => producto.valor = double.parse(value),
       validator: (value) {
         if (utils.isNumeric(value)) {
