@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:app_matricula_proy_final/src/pages/docente_list.dart';
 import 'package:app_matricula_proy_final/src/pages/docente_page.dart';
-import 'package:flutter/material.dart';
+import 'package:app_matricula_proy_final/src/pages/perfil_page.dart';
 
 import 'package:app_matricula_proy_final/src/bloc/provider.dart';
 
@@ -36,6 +38,7 @@ class MyApp extends StatelessWidget {
           'producto': (BuildContext context) => ProductoPage(),
           'docenteList': (BuildContext context) => DocenteListPage(),
           'docente': (BuildContext context) => DocentePage(),
+          'perfil': (BuildContext context) => PerfilPage()
         },
         theme: ThemeData(
           primaryColor: Colors.blue[700],

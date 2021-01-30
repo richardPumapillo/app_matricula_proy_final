@@ -7,10 +7,18 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: Text("<User>"),
+            title: Text("Opciones"),
             automaticallyImplyLeading: false,
           ),
           // Divider(),
+          ListTile(
+            leading: Icon(Icons.shop),
+            title: Text("Perfil"),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, 'perfil');
+            },
+          ),
+          Divider(),
           ListTile(
             leading: Icon(Icons.shop),
             title: Text("Cursos"),
@@ -40,7 +48,7 @@ class AppDrawer extends StatelessWidget {
             title: Text("Logout"),
             onTap: () {
               Navigator.of(context).pop();
-             // Provider.of<Auth>(context, listen: false).logout();
+              // Provider.of<Auth>(context, listen: false).logout();
             },
           ),
           Divider()
