@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -60,6 +61,7 @@ class _ProductoPageState extends State<ProductoPage> {
           ),
         ),
       ),
+      drawer: AppDrawer(),
     );
   }
 

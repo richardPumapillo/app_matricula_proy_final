@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:app_matricula_proy_final/src/bloc/provider.dart';
 import 'package:app_matricula_proy_final/src/providers/usuario_provider.dart';
@@ -10,11 +11,13 @@ class RegistroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
-      children: <Widget>[
-        _crearFondo(context),
-        _loginForm(context),
-      ],
-    ));
+          children: <Widget>[
+            _crearFondo(context),
+            _loginForm(context),
+          ],
+        ),
+        drawer: AppDrawer()
+      );
   }
 
   Widget _loginForm(BuildContext context) {
