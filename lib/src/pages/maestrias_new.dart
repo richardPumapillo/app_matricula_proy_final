@@ -1,34 +1,34 @@
 import 'dart:io';
 
-import 'package:app_matricula_proy_final/src/models/docente_model.dart';
-import 'package:app_matricula_proy_final/src/providers/docentes_provider.dart';
+import 'package:app_matricula_proy_final/src/models/maestria_model.dart';
+import 'package:app_matricula_proy_final/src/providers/maestrias_provider.dart';
 import 'package:flutter/material.dart';
 
-class DocentePage extends StatefulWidget {
+class MaestriasNew extends StatefulWidget {
   @override
   _DocentePageState createState() => _DocentePageState();
 }
 
-class _DocentePageState extends State<DocentePage> {
+class _DocentePageState extends State<MaestriasNew> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final docentesProvider = new DocentesProvider();
+  final maestriaProvider = new MaestriasProvider();
 
-  DocenteModel docente = new DocenteModel();
+  MaestriaModel maestria = new MaestriaModel();
   bool _guardando = false;
   File foto;
 
   @override
   Widget build(BuildContext context) {
-    final DocenteModel prodData = ModalRoute.of(context).settings.arguments;
+    final MaestriaModel prodData = ModalRoute.of(context).settings.arguments;
     if (prodData != null) {
-      docente = prodData;
+      maestria = prodData;
     }
 
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Docente'),
+        title: Text('Maestria'),
         actions: <Widget>[],
       ),
       body: SingleChildScrollView(
@@ -39,6 +39,7 @@ class _DocentePageState extends State<DocentePage> {
             child: Column(
               children: <Widget>[
                 _crearNombre(),
+                _crearSiglas(),
                 _crearDisponible(),
                 _crearBoton()
               ],
@@ -52,10 +53,10 @@ class _DocentePageState extends State<DocentePage> {
 
   Widget _crearNombre() {
     return TextFormField(
-      initialValue: docente.nombres,
+      initialValue: maestria.maestria,
       textCapitalization: TextCapitalization.sentences,
-      decoration: InputDecoration(labelText: 'Nombres'),
-      onSaved: (value) => docente.nombres = value,
+      decoration: InputDecoration(labelText: 'Tipo de Maestria'),
+      onSaved: (value) => maestria.maestria = value,
       validator: (value) {
         if (value.length < 3) {
           return 'Ingrese el nombre del Docente';
@@ -66,13 +67,29 @@ class _DocentePageState extends State<DocentePage> {
     );
   }
 
+  Widget _crearSiglas() {
+    return TextFormField(
+      initialValue: maestria.siglas,
+      textCapitalization: TextCapitalization.sentences,
+      decoration: InputDecoration(labelText: 'Siglas de Maestria'),
+      onSaved: (value) => maestria.siglas = value,
+      validator: (value) {
+        if (value.length < 3) {
+          return 'Ingrese la siglas de la Maestria';
+        } else {
+          return null;
+        }
+      },
+    );
+  }
+
   Widget _crearDisponible() {
     return SwitchListTile(
-      value: docente.disponible,
+      value: maestria.disponible,
       title: Text('Disponible'),
       activeColor: Colors.blue[700],
       onChanged: (value) => setState(() {
-        docente.disponible = value;
+        maestria.disponible = value;
       }),
     );
   }
@@ -97,10 +114,10 @@ class _DocentePageState extends State<DocentePage> {
       _guardando = true;
     });
 
-    if (docente.id == null) {
-      docentesProvider.crearDocente(docente);
+    if (maestria.id == null) {
+      maestriaProvider.crearDocente(maestria);
     } else {
-      docentesProvider.editarDocente(docente);
+      maestriaProvider.editarDocente(maestria);
     }
 
     // setState(() {_guardando = false; });
