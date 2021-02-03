@@ -12,7 +12,7 @@ class AppDrawer extends StatelessWidget {
           ),
           // Divider(),
           ListTile(
-            leading: Icon(Icons.shop),
+            leading: Icon(Icons.account_circle),
             title: Text("Perfil"),
             onTap: () {
               Navigator.pushReplacementNamed(context, 'perfil');
@@ -20,7 +20,7 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.shop),
+            leading: Icon(Icons.menu_book),
             title: Text("Cursos"),
             onTap: () {
               Navigator.pushReplacementNamed(context, 'home');
@@ -28,7 +28,7 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.payment),
+            leading: Icon(Icons.people),
             title: Text("Docentes"),
             onTap: () {
               Navigator.pushReplacementNamed(context, 'docenteList');
@@ -36,7 +36,15 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.edit),
+            leading: Icon(Icons.app_registration),
+            title: Text("Matrícula"),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, 'Matricula');
+            },
+          ),          
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.list_alt),
             title: Text("Reportes"),
             onTap: () {
               //Navigator.of(context).pushReplacementNamed(UserProductsScreen.routeName);
@@ -44,7 +52,7 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.edit),
+            leading: Icon(Icons.school),
             title: Text("Maestrias"),
             onTap: () {
               Navigator.pushReplacementNamed(context, 'Maestrias');

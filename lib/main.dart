@@ -12,6 +12,8 @@ import 'package:app_matricula_proy_final/src/pages/maestrias_new.dart';
 import 'package:app_matricula_proy_final/src/pages/login_page.dart';
 import 'package:app_matricula_proy_final/src/pages/producto_page.dart';
 import 'package:app_matricula_proy_final/src/pages/registro_page.dart';
+import 'package:app_matricula_proy_final/src/pages/matricula_page.dart';
+import 'package:app_matricula_proy_final/src/pages/matricula_new.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 
 void main() async {
@@ -42,7 +44,9 @@ class MyApp extends StatelessWidget {
           'docente': (BuildContext context) => DocentePage(),
           'perfil': (BuildContext context) => PerfilPage(),
           'Maestrias': (BuildContext context) => MaestriasPage(),
-          'NewMaestrias': (BuildContext context) => MaestriasNew()
+          'NewMaestrias': (BuildContext context) => MaestriasNew(),
+          'Matricula': (BuildContext context) => MatriculaPage(),
+          'NewMatricula': (BuildContext context) => MatriculaNew()          
         },
         theme: ThemeData(
           primaryColor: Colors.blue[700],
