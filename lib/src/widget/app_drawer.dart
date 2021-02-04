@@ -41,7 +41,7 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacementNamed(context, 'Matricula');
             },
-          ),
+          ),          
           Divider(),
           ListTile(
             leading: Icon(Icons.list_alt),

@@ -10,7 +10,6 @@ import 'package:app_matricula_proy_final/src/pages/home_page.dart';
 import 'package:app_matricula_proy_final/src/pages/maestrias_page.dart';
 import 'package:app_matricula_proy_final/src/pages/maestrias_new.dart';
 import 'package:app_matricula_proy_final/src/pages/maestria_cursos.dart';
-import 'package:app_matricula_proy_final/src/pages/maestria_cursos_page.dart';
 import 'package:app_matricula_proy_final/src/pages/login_page.dart';
 import 'package:app_matricula_proy_final/src/pages/producto_page.dart';
 import 'package:app_matricula_proy_final/src/pages/registro_page.dart';
@@ -47,8 +46,12 @@ class MyApp extends StatelessWidget {
           'perfil': (BuildContext context) => PerfilPage(),
           'Maestrias': (BuildContext context) => MaestriasPage(),
           'NewMaestrias': (BuildContext context) => MaestriasNew(),
-          'Maestria_Cursos': (BuildContext context) => MaestriasCursoPage(),
-          'NewMaestria_Cursos': (BuildContext context) => MaestriaCursoNew(),
+<<<<<<< HEAD
+          'Maestria_Cursos': (BuildContext context) => Maestria_CursoPage(),
+=======
+          'Matricula': (BuildContext context) => MatriculaPage(),
+          'NewMatricula': (BuildContext context) => MatriculaNew()          
+>>>>>>> bf6c50dbc9912bd871e82c49ab4acbde7e12a051
         },
         theme: ThemeData(
           primaryColor: Colors.blue[700],

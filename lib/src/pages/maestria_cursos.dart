@@ -7,12 +7,12 @@ import 'package:app_matricula_proy_final/src/providers/productos_provider.dart';
 import 'package:app_matricula_proy_final/src/models/MaestriaCurso_model.dart';
 import 'package:app_matricula_proy_final/src/providers/MaestriasCursos_provider.dart';
 
-class MaestriaCursoNew extends StatefulWidget {
+class Maestria_CursoPage extends StatefulWidget {
   @override
   _DocentePageState createState() => _DocentePageState();
 }
 
-class _DocentePageState extends State<MaestriaCursoNew> {
+class _DocentePageState extends State<Maestria_CursoPage> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final maestriaProvider = new MaestriasProvider();
@@ -30,8 +30,6 @@ class _DocentePageState extends State<MaestriaCursoNew> {
     super.initState();
     _cargarDocentes();
     _cargarProductos();
-    maestriacurso.maestriaid = "-MSVsRH-pChlN16td9t2";
-    maestriacurso.cursoid = "-MS_r3IZUjwjN1ic2_m5";
   }
 
   @override
@@ -81,7 +79,6 @@ class _DocentePageState extends State<MaestriaCursoNew> {
 
   List<MaestriaModel> _citiesList = <MaestriaModel>[];
   String _city;
-
   void _cargarDocentes() async {
     final List<MaestriaModel> _list = await maestriaProvider.cargarDocentes();
     setState(() {
@@ -94,16 +91,16 @@ class _DocentePageState extends State<MaestriaCursoNew> {
         child: DropdownButton<String>(
       isExpanded: true,
       hint: Text('Select Maestria'),
-      value: maestriacurso.maestriaid,
+      value: _city,
       items: _citiesList.map((value) {
         return DropdownMenuItem<String>(
           value: value.id,
           child: Text(value.maestria),
         );
       }).toList(),
-      onChanged: (String values) {
+      onChanged: (String newValue) {
         setState(() {
-          maestriacurso.maestriaid = values;
+          _city = newValue;
         });
       },
     ));
@@ -124,7 +121,7 @@ class _DocentePageState extends State<MaestriaCursoNew> {
         child: DropdownButton<String>(
       isExpanded: true,
       hint: Text('Select Curso'),
-      value: maestriacurso.cursoid,
+      value: _curso,
       items: _cursoList.map((value) {
         return DropdownMenuItem<String>(
           value: value.id,
@@ -133,7 +130,7 @@ class _DocentePageState extends State<MaestriaCursoNew> {
       }).toList(),
       onChanged: (String values) {
         setState(() {
-          maestriacurso.cursoid = values;
+          _curso = values;
         });
       },
     ));

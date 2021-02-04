@@ -12,29 +12,29 @@ String docenteModelToJson(MaestriaCursoModel data) =>
 
 class MaestriaCursoModel {
   String id;
-  String maestriaid;
-  String cursoid;
+  String maestria_id;
+  String curso_id;
   bool disponible;
 
   MaestriaCursoModel({
     this.id,
-    this.maestriaid = '',
-    this.cursoid = '',
+    this.maestria_id = '',
+    this.curso_id = '',
     this.disponible = true,
   });
 
   factory MaestriaCursoModel.fromJson(Map<String, dynamic> json) =>
       new MaestriaCursoModel(
         id: json["id"],
-        maestriaid: json["maestriaid"],
-        cursoid: json["cursoid"],
+        maestria_id: json["maestria_id"],
+        curso_id: json["curso_id"],
         disponible: json["disponible"],
       );
 
   Map<String, dynamic> toJson() => {
         // "id"         : id,
-        "maestriaid": maestriaid,
-        "cursoid": cursoid,
+        "maestria_id": maestria_id,
+        "curso_id": curso_id,
         "disponible": disponible,
       };
 }
