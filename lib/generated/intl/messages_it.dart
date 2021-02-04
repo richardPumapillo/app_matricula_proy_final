@@ -21,20 +21,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "courses" : MessageLookupByLibrary.simpleMessage("Kurser"),
+    "courses" : MessageLookupByLibrary.simpleMessage("Cursi"),
     "email" : MessageLookupByLibrary.simpleMessage("Posta"),
-    "enrollment" : MessageLookupByLibrary.simpleMessage("Tilmelding"),
+    "enrollment" : MessageLookupByLibrary.simpleMessage("Iscrizione"),
     "entry" : MessageLookupByLibrary.simpleMessage("Iscrizione"),
     "gotAccount" : MessageLookupByLibrary.simpleMessage("Hai già un account? Accedere"),
     "login" : MessageLookupByLibrary.simpleMessage("Accedere"),
-    "logout" : MessageLookupByLibrary.simpleMessage("Gå ud"),
-    "mastery" : MessageLookupByLibrary.simpleMessage("Kandidatgrad"),
-    "masteryCourses" : MessageLookupByLibrary.simpleMessage("Mesterkurser"),
+    "logout" : MessageLookupByLibrary.simpleMessage("Esci"),
+    "mastery" : MessageLookupByLibrary.simpleMessage("Master"),
+    "masteryCourses" : MessageLookupByLibrary.simpleMessage("Master cursi"),
     "newAccount" : MessageLookupByLibrary.simpleMessage("Creare un nuovo account"),
-    "options" : MessageLookupByLibrary.simpleMessage("Muligheder"),
+    "options" : MessageLookupByLibrary.simpleMessage("Opzioni"),
     "password" : MessageLookupByLibrary.simpleMessage("Parola d\'ordine"),
-    "profile" : MessageLookupByLibrary.simpleMessage("Profil"),
-    "reports" : MessageLookupByLibrary.simpleMessage("Papporter"),
-    "teachers" : MessageLookupByLibrary.simpleMessage("Lærere")
+    "profile" : MessageLookupByLibrary.simpleMessage("Profilo"),
+    "reports" : MessageLookupByLibrary.simpleMessage("Rapporti"),
+    "teachers" : MessageLookupByLibrary.simpleMessage("Insegnante")
   };
 }
