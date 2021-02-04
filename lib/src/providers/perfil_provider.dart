@@ -23,6 +23,7 @@ class PerfilProvider {
 
   Future<bool> editarPerfil(PerfilModel perfil) async {
     final url = '$_url/perfil/${perfil.id}.json?auth=${_prefs.token}';
+    // final url = '$_url/perfil/-MSea6ihNJUEtXYnU7XT.json?auth=${_prefs.token}';
 
     final resp = await http.put(url, body: perfilModelToJson(perfil));
 
@@ -34,6 +35,7 @@ class PerfilProvider {
   }
 
   Future<List<PerfilModel>> cargarPerfil() async {
+    // final url = '$_url/perfil.json?auth=${_prefs.token}';
     final url = '$_url/perfil.json?auth=${_prefs.token}';
     final resp = await http.get(url);
 

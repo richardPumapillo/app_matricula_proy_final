@@ -25,6 +25,7 @@ class UsuarioProvider {
 
     if (decodedResp.containsKey('idToken')) {
       _prefs.token = decodedResp['idToken'];
+      _prefs.idUsuario = decodedResp['localId'];
 
       return {'ok': true, 'token': decodedResp['idToken']};
     } else {
@@ -50,6 +51,7 @@ class UsuarioProvider {
 
     if (decodedResp.containsKey('idToken')) {
       _prefs.token = decodedResp['idToken'];
+      // _prefs.idUsuario= decodedResp[''];
 
       return {'ok': true, 'token': decodedResp['idToken']};
     } else {

@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:app_matricula_proy_final/src/bloc/provider.dart';
 import 'package:app_matricula_proy_final/src/providers/usuario_provider.dart';
@@ -48,6 +49,7 @@ class LoginPage extends StatelessWidget {
               children: <Widget>[
                 Icon(Icons.school, color: Color.fromRGBO(12, 104, 222, 1.0), size: 30.0,),
                 Text('Iniciar sesión', style: TextStyle(fontSize: 20.0)),
+                Text((S.of(context).entry), style: TextStyle(fontSize: 20.0)),
                 SizedBox(height: 60.0),
                 _crearEmail(bloc),
                 SizedBox(height: 30.0),
@@ -59,6 +61,7 @@ class LoginPage extends StatelessWidget {
           ),
           FlatButton(
             child: Text('Crear una nueva cuenta', style: TextStyle(color: Colors.blue, fontSize: 16),),
+            child: Text(S.of(context).newAccount),
             onPressed: () =>
                 Navigator.pushReplacementNamed(context, 'registro'),
           ),
@@ -79,7 +82,7 @@ class LoginPage extends StatelessWidget {
             decoration: InputDecoration(
                 icon: Icon(Icons.alternate_email, color: Colors.blue[700]),
                 hintText: 'ejemplo@correo.com',
-                labelText: 'Correo electrónico',
+                labelText: S.of(context).email,
                 counterText: snapshot.data,
                 errorText: snapshot.error),
             onChanged: bloc.changeEmail,
@@ -99,7 +102,7 @@ class LoginPage extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
                 icon: Icon(Icons.lock_outline, color: Colors.blue[700]),
-                labelText: 'Contraseña',
+                labelText: S.of(context).password,
                 counterText: snapshot.data,
                 errorText: snapshot.error),
             onChanged: bloc.changePassword,
@@ -121,6 +124,7 @@ class LoginPage extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
               child: Text('Ingresar', style: TextStyle(fontSize: 16),),
+              child: Text(S.of(context).login),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
@@ -200,6 +204,8 @@ class LoginPage extends StatelessWidget {
                           ),
                       ],                    
                     ))
+              Text('App UNMSM',
+                  style: TextStyle(color: Colors.white, fontSize: 25.0))
             ],
           ),
         )
