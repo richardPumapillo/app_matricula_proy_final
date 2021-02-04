@@ -4,8 +4,6 @@ import 'package:app_matricula_proy_final/src/models/docente_model.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:app_matricula_proy_final/src/models/producto_model.dart';
-
 class DocentesProvider {
   final String _url = 'https://app-matricula-default-rtdb.firebaseio.com';
   final _prefs = new PreferenciasUsuario();
@@ -63,5 +61,4 @@ class DocentesProvider {
 
     return 1;
   }
-
 }

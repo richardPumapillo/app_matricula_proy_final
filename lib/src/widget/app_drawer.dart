@@ -52,6 +52,14 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
+            leading: Icon(Icons.edit),
+            title: Text("Maestria_Cursos"),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
+            },
+          ),
+          Divider(),
+          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text("Logout"),
             onTap: () {
