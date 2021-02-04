@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:app_matricula_proy_final/src/bloc/provider.dart';
@@ -16,8 +17,7 @@ class RegistroPage extends StatelessWidget {
             _loginForm(context),
           ],
         ),
-        drawer: AppDrawer()
-      );
+        drawer: AppDrawer());
   }
 
   Widget _loginForm(BuildContext context) {
@@ -48,7 +48,8 @@ class RegistroPage extends StatelessWidget {
                 ]),
             child: Column(
               children: <Widget>[
-                Text('Crear cuenta', style: TextStyle(fontSize: 20.0)),
+                Text(S.of(context).newAccount,
+                    style: TextStyle(fontSize: 20.0)),
                 SizedBox(height: 60.0),
                 _crearEmail(bloc),
                 SizedBox(height: 30.0),
@@ -59,7 +60,7 @@ class RegistroPage extends StatelessWidget {
             ),
           ),
           FlatButton(
-            child: Text('¿Ya tienes cuenta? Login'),
+            child: Text(S.of(context).gotAccount),
             onPressed: () => Navigator.pushReplacementNamed(context, 'login'),
           ),
           SizedBox(height: 100.0)
@@ -79,7 +80,7 @@ class RegistroPage extends StatelessWidget {
             decoration: InputDecoration(
                 icon: Icon(Icons.alternate_email, color: Colors.blue[700]),
                 hintText: 'ejemplo@correo.com',
-                labelText: 'Correo electrónico',
+                labelText: S.of(context).email,
                 counterText: snapshot.data,
                 errorText: snapshot.error),
             onChanged: bloc.changeEmail,
@@ -99,7 +100,7 @@ class RegistroPage extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
                 icon: Icon(Icons.lock_outline, color: Colors.blue[700]),
-                labelText: 'Contraseña',
+                labelText: S.of(context).password,
                 counterText: snapshot.data,
                 errorText: snapshot.error),
             onChanged: bloc.changePassword,
@@ -120,7 +121,7 @@ class RegistroPage extends StatelessWidget {
         return RaisedButton(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-              child: Text('Ingresar'),
+              child: Text(S.of(context).entry),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),

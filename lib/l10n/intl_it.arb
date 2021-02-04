@@ -1,0 +1,27 @@
+{
+    "email": "Posta",
+    "password": "Parola d'ordine",
+    "login": "Accedere",
+    "entry": "Iscrizione",
+    "newAccount": "Creare un nuovo account",
+    "gotAccount": "Hai già un account? Accedere",
+    "options": "Opzioni",
+    "profile": "Profilo",
+    "courses": "Cursi",
+    "teachers": "Insegnante",
+    "enrollment": "Iscrizione",
+    "reports": "Rapporti",
+    "mastery": "Master",
+    "masteryCourses": "Master cursi",
+    "logout": "Esci"
+
+}
+"options": "Opzioni",
+"profile": "Profilo",
+"courses": "Cursi",
+"teachers": "Insegnante",
+"enrollment": "Iscrizione",
+"reports": "Rapporti",
+"mastery": "Master",
+"masteryCourses": "Master cursi",
+"logout": "Esci"
