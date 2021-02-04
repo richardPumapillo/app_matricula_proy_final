@@ -6,8 +6,10 @@ import 'package:app_matricula_proy_final/src/models/producto_model.dart';
 import 'package:app_matricula_proy_final/src/providers/productos_provider.dart';
 import 'package:app_matricula_proy_final/src/models/MaestriaCurso_model.dart';
 import 'package:app_matricula_proy_final/src/providers/MaestriasCursos_provider.dart';
+import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 
 class Maestria_CursoPage extends StatefulWidget {
+  Maestria_CursoPage({Key key}) : super(key: key);
   @override
   _DocentePageState createState() => _DocentePageState();
 }
@@ -46,6 +48,7 @@ class _DocentePageState extends State<Maestria_CursoPage> {
         title: Text('Detalle Maestria a Curso'),
         actions: <Widget>[],
       ),
+      drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(15.0),
@@ -90,7 +93,7 @@ class _DocentePageState extends State<Maestria_CursoPage> {
     return DropdownButtonHideUnderline(
         child: DropdownButton<String>(
       isExpanded: true,
-      hint: Text('Select Maestria'),
+      hint: Text('Seleccionar Maestria'),
       value: _city,
       items: _citiesList.map((value) {
         return DropdownMenuItem<String>(
@@ -120,7 +123,7 @@ class _DocentePageState extends State<Maestria_CursoPage> {
     return DropdownButtonHideUnderline(
         child: DropdownButton<String>(
       isExpanded: true,
-      hint: Text('Select Curso'),
+      hint: Text('Seleccionar Curso'),
       value: _curso,
       items: _cursoList.map((value) {
         return DropdownMenuItem<String>(

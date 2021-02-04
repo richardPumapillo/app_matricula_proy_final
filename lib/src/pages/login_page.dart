@@ -46,7 +46,8 @@ class LoginPage extends StatelessWidget {
                 ]),
             child: Column(
               children: <Widget>[
-                Text('Ingreso', style: TextStyle(fontSize: 20.0)),
+                Icon(Icons.school, color: Color.fromRGBO(12, 104, 222, 1.0), size: 30.0,),
+                Text('Iniciar sesión', style: TextStyle(fontSize: 20.0)),
                 SizedBox(height: 60.0),
                 _crearEmail(bloc),
                 SizedBox(height: 30.0),
@@ -57,7 +58,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           FlatButton(
-            child: Text('Crear una nueva cuenta'),
+            child: Text('Crear una nueva cuenta', style: TextStyle(color: Colors.blue, fontSize: 16),),
             onPressed: () =>
                 Navigator.pushReplacementNamed(context, 'registro'),
           ),
@@ -119,7 +120,7 @@ class LoginPage extends StatelessWidget {
         return RaisedButton(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-              child: Text('Ingresar'),
+              child: Text('Ingresar', style: TextStyle(fontSize: 16),),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
@@ -135,7 +136,7 @@ class LoginPage extends StatelessWidget {
     Map info = await usuarioProvider.login(bloc.email, bloc.password);
 
     if (info['ok']) {
-      Navigator.pushReplacementNamed(context, 'perfil');
+      Navigator.pushReplacementNamed(context, 'Principal');
     } else {
       mostrarAlerta(context, info['mensaje']);
     }
@@ -148,6 +149,10 @@ class LoginPage extends StatelessWidget {
       height: size.height * 0.4,
       width: double.infinity,
       decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/unmsm2021.png"),
+            fit: BoxFit.cover,
+          ),        
           gradient: LinearGradient(colors: <Color>[
         // Color.fromRGBO(63, 63, 156, 1.0),
         Color.fromRGBO(12, 104, 222, 1.0),
@@ -176,10 +181,25 @@ class LoginPage extends StatelessWidget {
           padding: EdgeInsets.only(top: 80.0),
           child: Column(
             children: <Widget>[
-              Icon(Icons.school, color: Colors.white, size: 100.0),
+              Icon(Icons.school, color: Colors.white, size: 100.0,),
               SizedBox(height: 10.0, width: double.infinity),
               Text('App Matricula UNMSM',
-                  style: TextStyle(color: Colors.white, fontSize: 25.0))
+                  style: TextStyle(
+                    color: Colors.white, 
+                    fontSize: 30.0, fontWeight: FontWeight.bold,
+                    shadows: [
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                            offset: Offset(5.0, 5.0),
+                          ),                      
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                            offset: Offset(-5.0, -5.0),
+                          ),
+                      ],                    
+                    ))
             ],
           ),
         )

@@ -29,12 +29,12 @@ class MatriculaModel {
 
     MatriculaModel({
         this.id,
-        this.postulante = 'Juan Perez',
-        this.maestria  = 'Ingenieria de Software',
-        this.periodoacademico = '2021-I',
-        this.ciclo = 'IV',
-        this.fechainicio = '2021-03-20', //DateTime.parse("2021-03-20 00:00:00"),
-        this.fechafin = '2021-07-15',
+        this.postulante = '',
+        this.maestria  = '',
+        this.periodoacademico = '',
+        this.ciclo = '',
+        this.fechainicio = '', //DateTime.parse("2021-03-20 00:00:00"),
+        this.fechafin = '',
         //this.cursos = getCursosIni(),
         this.estado = true,
     });

@@ -59,7 +59,7 @@ class RegistroPage extends StatelessWidget {
             ),
           ),
           FlatButton(
-            child: Text('¿Ya tienes cuenta? Login'),
+            child: Text('¿Ya tienes cuenta? Login', style: TextStyle(color: Colors.blue, fontSize: 16),),
             onPressed: () => Navigator.pushReplacementNamed(context, 'login'),
           ),
           SizedBox(height: 100.0)
@@ -120,7 +120,7 @@ class RegistroPage extends StatelessWidget {
         return RaisedButton(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-              child: Text('Ingresar'),
+              child: Text('Registrar cuenta', style: TextStyle(fontSize: 16),),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
