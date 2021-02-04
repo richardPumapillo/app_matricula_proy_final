@@ -9,12 +9,17 @@ import 'package:app_matricula_proy_final/src/bloc/provider.dart';
 import 'package:app_matricula_proy_final/src/pages/home_page.dart';
 import 'package:app_matricula_proy_final/src/pages/maestrias_page.dart';
 import 'package:app_matricula_proy_final/src/pages/maestrias_new.dart';
+import 'package:app_matricula_proy_final/src/pages/maestria_cursos.dart';
 import 'package:app_matricula_proy_final/src/pages/login_page.dart';
 import 'package:app_matricula_proy_final/src/pages/producto_page.dart';
 import 'package:app_matricula_proy_final/src/pages/registro_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_new.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'generated/l10n.dart';
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,9 +50,22 @@ class MyApp extends StatelessWidget {
           'perfil': (BuildContext context) => PerfilPage(),
           'Maestrias': (BuildContext context) => MaestriasPage(),
           'NewMaestrias': (BuildContext context) => MaestriasNew(),
+          'Maestria_Cursos': (BuildContext context) => Maestria_CursoPage(),
           'Matricula': (BuildContext context) => MatriculaPage(),
-          'NewMatricula': (BuildContext context) => MatriculaNew()          
+          'NewMatricula': (BuildContext context) => MatriculaNew()
         },
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale('de', ''),
+          const Locale('en', ''),
+          const Locale('es', 'ES'),
+          const Locale('it', ''),
+        ],
         theme: ThemeData(
           primaryColor: Colors.blue[700],
         ),

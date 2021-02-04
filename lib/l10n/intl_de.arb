@@ -1,0 +1,18 @@
+{
+    "email": "Post",
+    "password": "Adgangskode",
+    "login": "Log pa",
+    "entry": "Indgang",
+    "newAccount": "Oprette en ny konto",
+    "gotAccount": "¿Har du allerede en konto? Log pa",
+    "options": "Muligheder",
+    "profile": "Profil",
+    "courses": "Kurser",
+    "teachers": "Lærere",
+    "enrollment": "Tilmelding",
+    "reports": "Papporter",
+    "mastery": "Kandidatgrad",
+    "masteryCourses": "Mesterkurser",
+    "logout": "Gå ud"
+
+}

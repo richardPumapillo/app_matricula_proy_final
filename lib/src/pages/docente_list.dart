@@ -3,7 +3,6 @@ import 'package:app_matricula_proy_final/src/providers/docentes_provider.dart';
 import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 import 'package:flutter/material.dart';
 
-
 class DocenteListPage extends StatelessWidget {
   final docentesProvider = new DocentesProvider();
 
@@ -47,12 +46,12 @@ class DocenteListPage extends StatelessWidget {
         },
         child: Card(
           child: Column(
-            children: <Widget>[              
+            children: <Widget>[
               ListTile(
-                title: Text('${docente.nombres}  ${docente.apellidos}'),
+                title: Text(docente.nombres),
                 subtitle: Text(docente.correo),
-                onTap: () => Navigator.pushNamed(context, 'docente',
-                    arguments: docente),
+                onTap: () =>
+                    Navigator.pushNamed(context, 'docente', arguments: docente),
               ),
             ],
           ),

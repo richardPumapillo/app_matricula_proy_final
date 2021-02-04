@@ -4,8 +4,6 @@ import 'package:app_matricula_proy_final/src/models/docente_model.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:app_matricula_proy_final/src/models/producto_model.dart';
-
 class DocentesProvider {
   final String _url = 'https://app-matricula-default-rtdb.firebaseio.com';
   final _prefs = new PreferenciasUsuario();
@@ -39,20 +37,20 @@ class DocentesProvider {
     final resp = await http.get(url);
 
     final Map<String, dynamic> decodedData = json.decode(resp.body);
-    final List<DocenteModel> productos = new List();
+    final List<DocenteModel> docentes = new List();
 
     if (decodedData == null) return [];
 
-    decodedData.forEach((id, prod) {
-      final prodTemp = DocenteModel.fromJson(prod);
-      prodTemp.id = id;
+    decodedData.forEach((id, docente) {
+      final docenteTemp = DocenteModel.fromJson(docente);
+      docenteTemp.id = id;
 
-      productos.add(prodTemp);
+      docentes.add(docenteTemp);
     });
 
-    // print( productos[0].id );
+    // print( docentes[0].id );
 
-    return productos;
+    return docentes;
   }
 
   Future<int> borrarDocente(String id) async {
@@ -63,5 +61,4 @@ class DocentesProvider {
 
     return 1;
   }
-
 }
