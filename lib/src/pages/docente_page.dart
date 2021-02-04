@@ -20,9 +20,9 @@ class _DocentePageState extends State<DocentePage> {
 
   @override
   Widget build(BuildContext context) {
-    final DocenteModel prodData = ModalRoute.of(context).settings.arguments;
-    if (prodData != null) {
-      docente = prodData;
+    final DocenteModel docenteData = ModalRoute.of(context).settings.arguments;
+    if (docenteData != null) {
+      docente = docenteData;
     }
 
     return Scaffold(
@@ -39,6 +39,7 @@ class _DocentePageState extends State<DocentePage> {
             child: Column(
               children: <Widget>[
                 _crearNombre(),
+                _crearCorreo(),
                 _crearDisponible(),
                 _crearBoton()
               ],
@@ -59,6 +60,22 @@ class _DocentePageState extends State<DocentePage> {
       validator: (value) {
         if (value.length < 3) {
           return 'Ingrese el nombre del Docente';
+        } else {
+          return null;
+        }
+      },
+    );
+  }
+
+  Widget _crearCorreo() {
+    return TextFormField(
+      initialValue: docente.correo,
+      textCapitalization: TextCapitalization.sentences,
+      decoration: InputDecoration(labelText: 'Correo'),
+      onSaved: (value) => docente.correo = value,
+      validator: (value) {
+        if (value.length < 3) {
+          return 'Ingrese el correo del Docente';
         } else {
           return null;
         }

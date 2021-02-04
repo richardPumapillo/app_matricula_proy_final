@@ -16,7 +16,12 @@ import 'package:app_matricula_proy_final/src/pages/producto_page.dart';
 import 'package:app_matricula_proy_final/src/pages/registro_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_new.dart';
+import 'package:app_matricula_proy_final/src/pages/principal_page.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'generated/l10n.dart';
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,13 +52,3 @@ class MyApp extends StatelessWidget {
           'perfil': (BuildContext context) => PerfilPage(),
           'Maestrias': (BuildContext context) => MaestriasPage(),
           'NewMaestrias': (BuildContext context) => MaestriasNew(),
-          'Maestria_Cursos': (BuildContext context) => MaestriasCursoPage(),
-          'NewMaestria_Cursos': (BuildContext context) => MaestriaCursoNew(),
-        },
-        theme: ThemeData(
-          primaryColor: Colors.blue[700],
-        ),
-      ),
-    );
-  }
-}

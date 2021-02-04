@@ -48,7 +48,7 @@ class DocenteListPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               ListTile(
-                title: Text('${docente.nombres}  ${docente.apellidos}'),
+                title: Text(docente.nombres),
                 subtitle: Text(docente.correo),
                 onTap: () =>
                     Navigator.pushNamed(context, 'docente', arguments: docente),
