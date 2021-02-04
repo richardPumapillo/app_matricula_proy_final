@@ -16,8 +16,7 @@ class RegistroPage extends StatelessWidget {
             _loginForm(context),
           ],
         ),
-        drawer: AppDrawer()
-      );
+        drawer: AppDrawer());
   }
 
   Widget _loginForm(BuildContext context) {
@@ -120,7 +119,7 @@ class RegistroPage extends StatelessWidget {
         return RaisedButton(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-              child: Text('Ingresar'),
+              child: Text('Registrar'),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
@@ -137,7 +136,7 @@ class RegistroPage extends StatelessWidget {
     final info = await usuarioProvider.nuevoUsuario(bloc.email, bloc.password);
 
     if (info['ok']) {
-      Navigator.pushReplacementNamed(context, 'home');
+      Navigator.pushReplacementNamed(context, 'login');
     } else {
       mostrarAlerta(context, info['mensaje']);
     }
