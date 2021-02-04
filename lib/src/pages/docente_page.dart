@@ -20,9 +20,9 @@ class _DocentePageState extends State<DocentePage> {
 
   @override
   Widget build(BuildContext context) {
-    final DocenteModel prodData = ModalRoute.of(context).settings.arguments;
-    if (prodData != null) {
-      docente = prodData;
+    final DocenteModel docenteData = ModalRoute.of(context).settings.arguments;
+    if (docenteData != null) {
+      docente = docenteData;
     }
 
     return Scaffold(
