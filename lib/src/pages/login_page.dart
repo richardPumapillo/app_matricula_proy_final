@@ -1,4 +1,3 @@
-import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:app_matricula_proy_final/src/bloc/provider.dart';
 import 'package:app_matricula_proy_final/src/providers/usuario_provider.dart';
@@ -47,9 +46,7 @@ class LoginPage extends StatelessWidget {
                 ]),
             child: Column(
               children: <Widget>[
-                Icon(Icons.school, color: Color.fromRGBO(12, 104, 222, 1.0), size: 30.0,),
-                Text('Iniciar sesión', style: TextStyle(fontSize: 20.0)),
-                Text((S.of(context).entry), style: TextStyle(fontSize: 20.0)),
+                Text('Ingreso', style: TextStyle(fontSize: 20.0)),
                 SizedBox(height: 60.0),
                 _crearEmail(bloc),
                 SizedBox(height: 30.0),
@@ -60,8 +57,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           FlatButton(
-            child: Text('Crear una nueva cuenta', style: TextStyle(color: Colors.blue, fontSize: 16),),
-            child: Text(S.of(context).newAccount),
+            child: Text('Crear una nueva cuenta'),
             onPressed: () =>
                 Navigator.pushReplacementNamed(context, 'registro'),
           ),
@@ -82,7 +78,7 @@ class LoginPage extends StatelessWidget {
             decoration: InputDecoration(
                 icon: Icon(Icons.alternate_email, color: Colors.blue[700]),
                 hintText: 'ejemplo@correo.com',
-                labelText: S.of(context).email,
+                labelText: 'Correo electrónico',
                 counterText: snapshot.data,
                 errorText: snapshot.error),
             onChanged: bloc.changeEmail,
@@ -102,7 +98,7 @@ class LoginPage extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
                 icon: Icon(Icons.lock_outline, color: Colors.blue[700]),
-                labelText: S.of(context).password,
+                labelText: 'Contraseña',
                 counterText: snapshot.data,
                 errorText: snapshot.error),
             onChanged: bloc.changePassword,
@@ -123,8 +119,7 @@ class LoginPage extends StatelessWidget {
         return RaisedButton(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-              child: Text('Ingresar', style: TextStyle(fontSize: 16),),
-              child: Text(S.of(context).login),
+              child: Text('Ingresar'),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
@@ -140,7 +135,7 @@ class LoginPage extends StatelessWidget {
     Map info = await usuarioProvider.login(bloc.email, bloc.password);
 
     if (info['ok']) {
-      Navigator.pushReplacementNamed(context, 'Principal');
+      Navigator.pushReplacementNamed(context, 'perfil');
     } else {
       mostrarAlerta(context, info['mensaje']);
     }
@@ -153,10 +148,6 @@ class LoginPage extends StatelessWidget {
       height: size.height * 0.4,
       width: double.infinity,
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/unmsm2021.png"),
-            fit: BoxFit.cover,
-          ),        
           gradient: LinearGradient(colors: <Color>[
         // Color.fromRGBO(63, 63, 156, 1.0),
         Color.fromRGBO(12, 104, 222, 1.0),
@@ -185,26 +176,9 @@ class LoginPage extends StatelessWidget {
           padding: EdgeInsets.only(top: 80.0),
           child: Column(
             children: <Widget>[
-              Icon(Icons.school, color: Colors.white, size: 100.0,),
+              Icon(Icons.school, color: Colors.white, size: 100.0),
               SizedBox(height: 10.0, width: double.infinity),
               Text('App Matricula UNMSM',
-                  style: TextStyle(
-                    color: Colors.white, 
-                    fontSize: 30.0, fontWeight: FontWeight.bold,
-                    shadows: [
-                          Shadow(
-                            blurRadius: 10.0,
-                            color: Colors.black,
-                            offset: Offset(5.0, 5.0),
-                          ),                      
-                          Shadow(
-                            blurRadius: 10.0,
-                            color: Colors.black,
-                            offset: Offset(-5.0, -5.0),
-                          ),
-                      ],                    
-                    ))
-              Text('App UNMSM',
                   style: TextStyle(color: Colors.white, fontSize: 25.0))
             ],
           ),

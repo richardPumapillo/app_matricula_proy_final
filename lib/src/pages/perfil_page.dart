@@ -31,7 +31,7 @@ class _PerfilPageState extends State<PerfilPage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Editando Perfil'),
+        title: Text('Perfil'),
       ),
       drawer: AppDrawer(),
       // body: Column(
@@ -53,8 +53,7 @@ class _PerfilPageState extends State<PerfilPage> {
                   _crearNombre(),
                   _crearApellidoPaterno(),
                   _crearApellidoMaterno(),
-                  _crearBoton(),
-                  _regresarBoton()
+                  _crearBoton()
                 ],
               ),
             )),
@@ -121,17 +120,6 @@ class _PerfilPageState extends State<PerfilPage> {
     );
   }
 
-  Widget _regresarBoton() {
-    return RaisedButton.icon(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      color: Colors.green[700],
-      textColor: Colors.white,
-      label: Text('Regresar'),
-      icon: Icon(Icons.reply),
-      onPressed: _regresarPerfil,
-    );
-  }
-
   void _submit() async {
     if (!formKey.currentState.validate()) return;
 
@@ -151,10 +139,6 @@ class _PerfilPageState extends State<PerfilPage> {
     mostrarSnackbar('Registro guardado');
 
     // Navigator.pop(context);
-  }
-
-  void _regresarPerfil() async {
-      Navigator.pushReplacementNamed(context, 'Principal');
   }
 
   void mostrarSnackbar(String mensaje) {

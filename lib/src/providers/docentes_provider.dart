@@ -37,20 +37,20 @@ class DocentesProvider {
     final resp = await http.get(url);
 
     final Map<String, dynamic> decodedData = json.decode(resp.body);
-    final List<DocenteModel> docentes = new List();
+    final List<DocenteModel> productos = new List();
 
     if (decodedData == null) return [];
 
-    decodedData.forEach((id, docente) {
-      final docenteTemp = DocenteModel.fromJson(docente);
-      docenteTemp.id = id;
+    decodedData.forEach((id, prod) {
+      final prodTemp = DocenteModel.fromJson(prod);
+      prodTemp.id = id;
 
-      docentes.add(docenteTemp);
+      productos.add(prodTemp);
     });
 
-    // print( docentes[0].id );
+    // print( productos[0].id );
 
-    return docentes;
+    return productos;
   }
 
   Future<int> borrarDocente(String id) async {

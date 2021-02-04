@@ -3,59 +3,67 @@ import 'dart:io';
 import 'package:app_matricula_proy_final/src/models/matricula_model.dart';
 import 'package:app_matricula_proy_final/src/providers/matricula_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:app_matricula_proy_final/src/widget/notifcation_dialog.dart';
-import 'package:app_matricula_proy_final/src/models/maestria_model.dart';
-import 'package:app_matricula_proy_final/src/providers/maestrias_provider.dart';
-import 'package:app_matricula_proy_final/src/models/producto_model.dart';
-import 'package:app_matricula_proy_final/src/providers/productos_provider.dart';
 
 class MatriculaNew extends StatefulWidget {
   @override
   _MatriculaPageState createState() => _MatriculaPageState();
 }
 
+class Ciclo {
+  int id;
+  String ciclo;
+ 
+  Ciclo(this.id, this.ciclo);
+ 
+  static List<Ciclo> getCiclos() {
+    return <Ciclo>[
+      Ciclo(0, 'Ciclo'),
+      Ciclo(1, 'I'),
+      Ciclo(2, 'II'),
+      Ciclo(3, 'III'),
+      Ciclo(4, 'IV'),
+    ];
+  }
+}
+
 class _MatriculaPageState extends State<MatriculaNew> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final matriculaProvider = new MatriculaProvider();
-  final maestriaProvider = new MaestriasProvider();
-  final cursoProvider = new ProductosProvider();
 
   MatriculaModel matricula = new MatriculaModel();
   bool _guardando = false;
   File foto;
 
-  DateTime selectedDate = DateTime.now();
-  final DateFormat dateFormat = DateFormat('yyyy-MM-dd');
-/*
-class Ciclo {
-
-  static List<MatriculaModel> getCiclos() {
-    return <MatriculaModel>[
-      MatriculaModel(ciclo: 'I'),
-      MatriculaModel(ciclo: 'II'),
-      MatriculaModel(ciclo: 'III'),
-      MatriculaModel(ciclo: 'IV'),
-    ];
-  }
-}
-  List<MatriculaModel> _cicloList = <MatriculaModel>[];
-  String _ciclo;
-  void _cargarCiclos() async {
-    final List<MatriculaModel> _list = Ciclo.getCiclos();
-    setState(() {
-      _cicloList = _list;
-    });
-  }
- */
-
-  @override
-  void initState() {
-    super.initState();
-    _cargarMaestrias();
-    //_cargarCiclos();
-  }
+  List<Ciclo> _ciclos = Ciclo.getCiclos();
+    List<DropdownMenuItem<Ciclo>> _dropdownMenuItems;
+    Ciclo _selectedCiclo;
+  
+    @override
+    void initState() {
+      _dropdownMenuItems = buildDropdownMenuItems(_ciclos);
+      _selectedCiclo = _dropdownMenuItems[0].value;
+      super.initState();
+    }
+  
+    List<DropdownMenuItem<Ciclo>> buildDropdownMenuItems(List ciclos) {
+      List<DropdownMenuItem<Ciclo>> items = List();
+      for (Ciclo ciclo in ciclos) {
+        items.add(
+          DropdownMenuItem(
+            value: ciclo,
+            child: Text(ciclo.ciclo),
+          ),
+        );
+      }
+      return items;
+    }
+  
+    onChangeDropdownItem(Ciclo selectedCiclo) {
+      setState(() {
+        _selectedCiclo = selectedCiclo;
+      });
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +87,6 @@ class Ciclo {
               children: <Widget>[
                 _crearPostulante(),
                 _crearMaestria(),
-                //_crearBotonAddCurso(),
                 _crearPeriodoacademico(),
                 _crearCiclo(),
                 _crearFechainicio(),
@@ -99,7 +106,6 @@ class Ciclo {
     return TextFormField(
       initialValue: matricula.postulante,
       textCapitalization: TextCapitalization.sentences,
-      //leading: Icon(Icons.app_registration),
       decoration: InputDecoration(labelText: 'Postulante'),
       onSaved: (value) => matricula.postulante = value,
       validator: (value) {
@@ -111,41 +117,11 @@ class Ciclo {
       },
     );
   }
-
-  List<MaestriaModel> _maestriaList = <MaestriaModel>[];
-  String _maestria;
-  void _cargarMaestrias() async {
-    final List<MaestriaModel> _list = await maestriaProvider.cargarDocentes();
-    setState(() {
-      _maestriaList = _list;
-    });
-  }
-
-  Widget _crearMaestria() {
-    return DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
-      isExpanded: true,
-      hint: Text('Seleccionar Maestria'),
-      value: _maestria,
-      items: _maestriaList.map((value) {
-        return DropdownMenuItem<String>(
-          value: value.id,
-          child: Text(value.maestria),
-        );
-      }).toList(),
-      onChanged: (String newValue) {
-        setState(() {
-          _maestria = newValue;
-        });
-      },
-    ));
-  }
-/*
   Widget _crearMaestria() {
     return TextFormField(
       initialValue: matricula.maestria,
       textCapitalization: TextCapitalization.sentences,
-      decoration: InputDecoration(labelText: 'Maestria'),
+      decoration: InputDecoration(labelText: 'Tipo de Maestria'),
       onSaved: (value) => matricula.maestria = value,
       validator: (value) {
         if (value.length < 3) {
@@ -156,12 +132,11 @@ class Ciclo {
       },
     );
   }
-*/
   Widget _crearPeriodoacademico() {
    return TextFormField(
       initialValue: matricula.periodoacademico,
       textCapitalization: TextCapitalization.sentences,
-      decoration: InputDecoration(labelText: 'Periodo Académico'),
+      decoration: InputDecoration(labelText: 'Periodo Academico'),
       onSaved: (value) => matricula.periodoacademico = value,
       validator: (value) {
         if (value.length < 3) {
@@ -174,55 +149,18 @@ class Ciclo {
   }
   Widget _crearCiclo() {
 
-    /*    Text("Ciclo");
+        Text("Ciclo");
+
         return DropdownButton(
           
           value: _selectedCiclo,
           items: _dropdownMenuItems,
           onChanged: onChangeDropdownItem,
         );
-    */
-   
-      String _ratingController;
-      return  DropdownButtonFormField<String>(
-            decoration: InputDecoration(labelText: 'Seleccionar Ciclo'),
-            value: _ratingController,
-            items: ['I','II','III','IV']
-              .map((label) => DropdownMenuItem(
-              child: Text(label.toString()),
-              value: label,
-            ))
-                .toList(),
-            hint: Text(''),
-            onChanged: (value) {
-              setState(() {
-                _ratingController = value;
-              });
-            },
-          );
 
-/*
-   return DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
-      isExpanded: true,
-      hint: Text('Seleccionar Ciclo'),
-      value: _ciclo,
-      items: _cicloList.map((value) {
-        return DropdownMenuItem<String>(
-          value: value.ciclo,
-          child: Text(value.ciclo),
-        );
-      }).toList(),
-      onChanged: (String newValue) {
-        setState(() {
-          _ciclo = newValue;
-        });
-      },
-    ));
-*/
   }
   Widget _crearFechainicio() {
-   /* return TextFormField(
+    return TextFormField(
       initialValue: matricula.fechainicio,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(labelText: 'Fecha Inicio'),
@@ -234,24 +172,7 @@ class Ciclo {
           return null;
         }
       },
-    ); */
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(dateFormat.format(selectedDate)),
-        RaisedButton(
-          child: Text('Seleccionar Fecha'),
-          onPressed: () async {
-            showDateTimeDialog(context, initialDate: selectedDate,
-                onSelectedDate: (selectedDate) {
-              setState(() {
-                this.selectedDate = selectedDate;
-              });
-            });
-          },
-        ),
-      ],
-    );    
+    );
   }
   Widget _crearFechafin() {
     return TextFormField(
@@ -290,23 +211,6 @@ class Ciclo {
     );
   }
 
-  Widget _crearBotonAddCurso() {
-    return RaisedButton.icon(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      color: Colors.green[700],
-      textColor: Colors.white,
-      label: Text('Añadir Cursos'),
-      icon: Icon(Icons.menu_book),
-      onPressed: _addCurso,
-    );
-  }
-
-  void _addCurso() async {
-
-      Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
-
-  }
-
   void _submit() async {
     if (!formKey.currentState.validate()) return;
 
@@ -321,11 +225,10 @@ class Ciclo {
     } else {
       matriculaProvider.editarMatricula(matricula);
     }
-    
-   Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
+
     // setState(() {_guardando = false; });
     mostrarSnackbar('Registro guardado');
-    
+
     Navigator.pop(context);
   }
 
