@@ -59,7 +59,7 @@ class RegistroPage extends StatelessWidget {
             ),
           ),
           FlatButton(
-            child: Text('¿Ya tienes cuenta? Login'),
+            child: Text('¿Ya tienes cuenta? Login', style: TextStyle(color: Colors.blue, fontSize: 16),),
             onPressed: () => Navigator.pushReplacementNamed(context, 'login'),
           ),
           SizedBox(height: 100.0)
@@ -120,7 +120,7 @@ class RegistroPage extends StatelessWidget {
         return RaisedButton(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-              child: Text('Ingresar'),
+              child: Text('Registrar cuenta', style: TextStyle(fontSize: 16),),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
@@ -152,6 +152,10 @@ class RegistroPage extends StatelessWidget {
       height: size.height * 0.4,
       width: double.infinity,
       decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/unmsm2021.png"),
+            fit: BoxFit.cover,
+          ),        
           gradient: LinearGradient(colors: <Color>[
         Color.fromRGBO(12, 104, 222, 1.0),
         Color.fromRGBO(39, 109, 199, 1.0)
@@ -180,8 +184,23 @@ class RegistroPage extends StatelessWidget {
             children: <Widget>[
               Icon(Icons.school, color: Colors.white, size: 100.0),
               SizedBox(height: 10.0, width: double.infinity),
-              Text('App UNMSM',
-                  style: TextStyle(color: Colors.white, fontSize: 25.0))
+              Text('App Matricula UNMSM',
+                  style: TextStyle(
+                    color: Colors.white, 
+                    fontSize: 30.0, fontWeight: FontWeight.bold,
+                    shadows: [
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                            offset: Offset(5.0, 5.0),
+                          ),                      
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                            offset: Offset(-5.0, -5.0),
+                          ),
+                      ],                    
+                    ))
             ],
           ),
         )
