@@ -12,6 +12,9 @@ class PerfilProvider {
 
   Future<bool> crearPerfil(PerfilModel perfil) async {
     final url = '$_url/perfil.json?auth=${_prefs.token}';
+    // perfil.idUsuario = _prefs.idUsuario;
+    print('desde crear perfil provider');
+    // print(perfil.id);
     final resp = await http.post(url, body: perfilModelToJson(perfil));
 
     final decodedData = json.decode(resp.body);
@@ -22,8 +25,12 @@ class PerfilProvider {
   }
 
   Future<bool> editarPerfil(PerfilModel perfil) async {
+    print('desde editarperfil - perfil provider');
+    print(perfil.id);
     final url = '$_url/perfil/${perfil.id}.json?auth=${_prefs.token}';
-
+    // final url = '$_url/perfil/-MSea6ihNJUEtXYnU7XT.json?auth=${_prefs.token}';
+    print('desde editar perfil en provider');
+    // perfil.id = _prefs.idUsuario;
     final resp = await http.put(url, body: perfilModelToJson(perfil));
 
     final decodedData = json.decode(resp.body);
@@ -33,9 +40,12 @@ class PerfilProvider {
     return true;
   }
 
-  Future<List<PerfilModel>> cargarPerfil() async {
+  Future<List<PerfilModel>> cargarPerfiles() async {
+    // final url = '$_url/perfil.json?auth=${_prefs.token}';
     final url = '$_url/perfil.json?auth=${_prefs.token}';
     final resp = await http.get(url);
+    print('desde cargar perfiles');
+    print(resp.body);
 
     final Map<String, dynamic> decodedData = json.decode(resp.body);
     final List<PerfilModel> perfiles = new List();
@@ -49,5 +59,23 @@ class PerfilProvider {
     });
 
     return perfiles;
+  }
+
+  Future<PerfilModel> cargarPerfil() async {
+    // final url = '$_url/perfil.json?auth=${_prefs.token}';
+    //final url = '$_url/perfil.json?auth=${_prefs.token}';
+    final url = '$_url/perfil/${_prefs.idUsuario}.json?auth=${_prefs.token}';
+    final resp = await http.get(url);
+
+    final Map<String, dynamic> decodedData = json.decode(resp.body);
+    PerfilModel perfile = new PerfilModel();
+
+    if (decodedData == null) return null;
+
+    perfile = PerfilModel.fromJson(decodedData);
+    print('prueba de perfil');
+    print(perfile);
+
+    return perfile;
   }
 }

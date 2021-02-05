@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/src/pages/perfil_list_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_matricula_proy_final/src/pages/docente_list.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
               MaestriaCursoPageNew(),
           'Matricula': (BuildContext context) => MatriculaPage(),
           'NewMatricula': (BuildContext context) => MatriculaNew(),
-          'Principal': (BuildContext context) => PrincipalPage()  
+          'Principal': (BuildContext context) => PerfilListPage()
         },
         localizationsDelegates: [
           S.delegate,
