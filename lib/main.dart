@@ -1,3 +1,5 @@
+import 'package:app_matricula_proy_final/src/pages/reportes/bar_chart_matricula.dart';
+import 'package:app_matricula_proy_final/src/pages/reportes_list.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_matricula_proy_final/src/pages/docente_list.dart';
@@ -56,7 +58,9 @@ class MyApp extends StatelessWidget {
               MaestriaCursoPageNew(),
           'Matricula': (BuildContext context) => MatriculaPage(),
           'NewMatricula': (BuildContext context) => MatriculaNew(),
-          'Principal': (BuildContext context) => PrincipalPage()  
+          'Principal': (BuildContext context) => PrincipalPage(),
+          'Reportes': (BuildContext context) => ReportesListPage(),
+          'ReportesMatriculas': (BuildContext context) => BarChartMatriculas()
         },
         localizationsDelegates: [
           S.delegate,

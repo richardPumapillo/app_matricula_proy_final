@@ -48,7 +48,7 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.list_alt),
             title: Text(S.of(context).reports, style: TextStyle(fontSize: 16)),
             onTap: () {
-              //Navigator.of(context).pushReplacementNamed(UserProductsScreen.routeName);
+              Navigator.pushReplacementNamed(context, 'Reportes');
             },
           ),
           Divider(),
