@@ -7,12 +7,12 @@ import 'package:app_matricula_proy_final/src/providers/productos_provider.dart';
 import 'package:app_matricula_proy_final/src/models/MaestriaCurso_model.dart';
 import 'package:app_matricula_proy_final/src/providers/MaestriasCursos_provider.dart';
 
-class Maestria_CursoPage extends StatefulWidget {
+class MaestriaCursoPageNew extends StatefulWidget {
   @override
   _DocentePageState createState() => _DocentePageState();
 }
 
-class _DocentePageState extends State<Maestria_CursoPage> {
+class _DocentePageState extends State<MaestriaCursoPageNew> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final maestriaProvider = new MaestriasProvider();
@@ -30,6 +30,8 @@ class _DocentePageState extends State<Maestria_CursoPage> {
     super.initState();
     _cargarDocentes();
     _cargarProductos();
+    maestriacurso.maestriaid = null;
+    maestriacurso.cursoid = null;
   }
 
   @override
@@ -78,9 +80,9 @@ class _DocentePageState extends State<Maestria_CursoPage> {
   }
 
   List<MaestriaModel> _citiesList = <MaestriaModel>[];
-  String _city;
   void _cargarDocentes() async {
     final List<MaestriaModel> _list = await maestriaProvider.cargarDocentes();
+
     setState(() {
       _citiesList = _list;
     });
@@ -91,7 +93,7 @@ class _DocentePageState extends State<Maestria_CursoPage> {
         child: DropdownButton<String>(
       isExpanded: true,
       hint: Text('Select Maestria'),
-      value: _city,
+      value: maestriacurso.maestriaid,
       items: _citiesList.map((value) {
         return DropdownMenuItem<String>(
           value: value.id,
@@ -100,14 +102,13 @@ class _DocentePageState extends State<Maestria_CursoPage> {
       }).toList(),
       onChanged: (String newValue) {
         setState(() {
-          _city = newValue;
+          maestriacurso.maestriaid = newValue;
         });
       },
     ));
   }
 
   List<ProductoModel> _cursoList = <ProductoModel>[];
-  String _curso;
   void _cargarProductos() async {
     final List<ProductoModel> _cursoarray =
         await cursoProvider.cargarProductos();
@@ -121,7 +122,7 @@ class _DocentePageState extends State<Maestria_CursoPage> {
         child: DropdownButton<String>(
       isExpanded: true,
       hint: Text('Select Curso'),
-      value: _curso,
+      value: maestriacurso.cursoid,
       items: _cursoList.map((value) {
         return DropdownMenuItem<String>(
           value: value.id,
@@ -130,7 +131,7 @@ class _DocentePageState extends State<Maestria_CursoPage> {
       }).toList(),
       onChanged: (String values) {
         setState(() {
-          _curso = values;
+          maestriacurso.cursoid = values;
         });
       },
     ));
