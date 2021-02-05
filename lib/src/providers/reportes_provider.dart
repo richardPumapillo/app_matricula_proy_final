@@ -27,8 +27,14 @@ class ReportesProvider {
     reporte2.descripcion = "De acuerdo a las matriculas";
     reporte2.reporte = "DonutMatriculas";
 
+    ReporteModel reporte3 = new ReporteModel();
+    reporte3.nombre = "Time Chart ";
+    reporte3.descripcion = "Chart de Ejemplo";
+    reporte3.reporte = "TimeMatriculas";
+
     reportes.add(reporte1);
     reportes.add(reporte2);
+    reportes.add(reporte3);
 
     return reportes;
   }

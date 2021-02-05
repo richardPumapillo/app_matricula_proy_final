@@ -1,6 +1,7 @@
 import 'package:app_matricula_proy_final/src/pages/perfil_list_page.dart';
 import 'package:app_matricula_proy_final/src/pages/reportes/bar_chart_matricula.dart';
 import 'package:app_matricula_proy_final/src/pages/reportes/donut_chart_matricula.dart';
+import 'package:app_matricula_proy_final/src/pages/reportes/time_chart_matricula.dart';
 import 'package:app_matricula_proy_final/src/pages/reportes_list.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,8 @@ class MyApp extends StatelessWidget {
           'Principal': (BuildContext context) => PerfilListPage(),
           'Reportes': (BuildContext context) => ReportesListPage(),
           'ReportesMatriculas': (BuildContext context) => BarChartMatriculas(),
-          'DonutMatriculas': (BuildContext context) => DonutAutoLabelChart.withSampleData()
+          'DonutMatriculas': (BuildContext context) => DonutAutoLabelChart.withSampleData(),
+          'TimeMatriculas': (BuildContext context) => SimpleTimeSeriesChart.withSampleData()
           
         },
         localizationsDelegates: [
