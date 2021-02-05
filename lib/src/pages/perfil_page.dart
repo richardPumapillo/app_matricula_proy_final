@@ -22,7 +22,6 @@ class _PerfilPageState extends State<PerfilPage> {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of(context);
     final PerfilModel perfData = ModalRoute.of(context).settings.arguments;
     if (perfData != null) {
       perfil = perfData;

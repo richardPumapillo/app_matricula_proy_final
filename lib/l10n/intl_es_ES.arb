@@ -1,0 +1,18 @@
+{
+
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "login": "Ingresar",
+    "entry": "Ingreso",
+    "newAccount": "Crear una nueva cuenta",
+    "gotAccount": "¿Ya tienes cuenta? Ingresa",
+    "options": "Opciones",
+    "profile": "Perfil",
+    "courses": "Cursos",
+    "teachers": "Profesores",
+    "enrollment": "Matrícula",
+    "reports": "Reportes",
+    "mastery": "Maestría",
+    "masteryCourses": "Maestría-cursos",
+    "logout": "Salir"
+}

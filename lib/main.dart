@@ -17,6 +17,9 @@ import 'package:app_matricula_proy_final/src/pages/registro_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_new.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,6 +56,18 @@ class MyApp extends StatelessWidget {
           'Matricula': (BuildContext context) => MatriculaPage(),
           'NewMatricula': (BuildContext context) => MatriculaNew()
         },
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale('de', ''),
+          const Locale('en', ''),
+          const Locale('es', 'ES'),
+          const Locale('it', ''),
+        ],
         theme: ThemeData(
           primaryColor: Colors.blue[700],
         ),
