@@ -98,7 +98,7 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
       value: maestriacurso.maestriaid,
       items: _citiesList.map((value) {
         return DropdownMenuItem<String>(
-          value: value.id,
+          value: value.maestria,
           child: Text(value.maestria),
         );
       }).toList(),
@@ -127,7 +127,7 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
       value: maestriacurso.cursoid,
       items: _cursoList.map((value) {
         return DropdownMenuItem<String>(
-          value: value.id,
+          value: value.titulo,
           child: Text(value.titulo),
         );
       }).toList(),
