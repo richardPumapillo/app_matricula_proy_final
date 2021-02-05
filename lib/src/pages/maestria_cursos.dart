@@ -49,7 +49,6 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
         title: Text('Detalle Maestria a Curso'),
         actions: <Widget>[],
       ),
-      drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(15.0),
