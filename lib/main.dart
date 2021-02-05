@@ -1,4 +1,5 @@
 import 'package:app_matricula_proy_final/src/pages/reportes/bar_chart_matricula.dart';
+import 'package:app_matricula_proy_final/src/pages/reportes/donut_chart_matricula.dart';
 import 'package:app_matricula_proy_final/src/pages/reportes_list.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +61,9 @@ class MyApp extends StatelessWidget {
           'NewMatricula': (BuildContext context) => MatriculaNew(),
           'Principal': (BuildContext context) => PrincipalPage(),
           'Reportes': (BuildContext context) => ReportesListPage(),
-          'ReportesMatriculas': (BuildContext context) => BarChartMatriculas()
+          'ReportesMatriculas': (BuildContext context) => BarChartMatriculas(),
+          'DonutMatriculas': (BuildContext context) => DonutAutoLabelChart.withSampleData()
+          
         },
         localizationsDelegates: [
           S.delegate,

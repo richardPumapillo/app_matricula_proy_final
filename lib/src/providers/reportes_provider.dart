@@ -25,7 +25,7 @@ class ReportesProvider {
     ReporteModel reporte2 = new ReporteModel();
     reporte2.nombre = "Cursos Populares";
     reporte2.descripcion = "De acuerdo a las matriculas";
-    reporte1.reporte = "ReportesMatriculas";
+    reporte2.reporte = "DonutMatriculas";
 
     reportes.add(reporte1);
     reportes.add(reporte2);
