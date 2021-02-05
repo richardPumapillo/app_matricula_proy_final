@@ -26,6 +26,7 @@ class UsuarioProvider {
     if (decodedResp.containsKey('idToken')) {
       _prefs.token = decodedResp['idToken'];
       _prefs.idUsuario = decodedResp['localId'];
+      _prefs.correo = decodedResp['email'];
 
       return {'ok': true, 'token': decodedResp['idToken']};
     } else {

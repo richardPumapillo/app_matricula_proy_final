@@ -41,10 +41,12 @@ class _PerfilListPageState extends State<PerfilListPage> {
         // });
         setState(() {
           perfil = element;
+          _prefs.nombreUsuario = element.nombre + ' ' + element.apellidoPaterno;
         });
         // perfil.nombre = element.nombre;
       } else {
         perfil.idUsuario = _prefs.idUsuario;
+        _prefs.nombreUsuario = '';
       }
     });
 
@@ -83,7 +85,8 @@ class _PerfilListPageState extends State<PerfilListPage> {
           backgroundImage: AssetImage('assets/ing.jpg'),
         ),
         Text(
-          'Waldo Trebejo', //perfil.nombre . aqui se debe obtener datos del usuario logueado
+          _prefs
+              .nombreUsuario, //perfil.nombre . aqui se debe obtener datos del usuario logueado
           style: TextStyle(
             fontFamily: 'Pacifico',
             fontSize: 40.0,
@@ -138,7 +141,7 @@ class _PerfilListPageState extends State<PerfilListPage> {
               Icons.email,
               color: Colors.teal,
             ),
-            title: Text('alumno.upg@unmsm.edu.pe',
+            title: Text(_prefs.correo,
                 style: TextStyle(
                   color: Colors.teal.shade900,
                   fontFamily: 'SourceSansPro',
