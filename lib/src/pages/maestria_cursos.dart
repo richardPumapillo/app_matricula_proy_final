@@ -6,6 +6,7 @@ import 'package:app_matricula_proy_final/src/models/producto_model.dart';
 import 'package:app_matricula_proy_final/src/providers/productos_provider.dart';
 import 'package:app_matricula_proy_final/src/models/MaestriaCurso_model.dart';
 import 'package:app_matricula_proy_final/src/providers/MaestriasCursos_provider.dart';
+import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 
 class MaestriaCursoPageNew extends StatefulWidget {
   @override
@@ -48,6 +49,7 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
         title: Text('Detalle Maestria a Curso'),
         actions: <Widget>[],
       ),
+      drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(15.0),

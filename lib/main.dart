@@ -16,6 +16,7 @@ import 'package:app_matricula_proy_final/src/pages/producto_page.dart';
 import 'package:app_matricula_proy_final/src/pages/registro_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_new.dart';
+import 'package:app_matricula_proy_final/src/pages/principal_page.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -54,7 +55,8 @@ class MyApp extends StatelessWidget {
           'Maestria_CursosNew': (BuildContext context) =>
               MaestriaCursoPageNew(),
           'Matricula': (BuildContext context) => MatriculaPage(),
-          'NewMatricula': (BuildContext context) => MatriculaNew()
+          'NewMatricula': (BuildContext context) => MatriculaNew(),
+          'Principal': (BuildContext context) => PrincipalPage()  
         },
         localizationsDelegates: [
           S.delegate,
