@@ -38,10 +38,15 @@ class SimpleTimeSeriesChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<TimeSeriesSales, DateTime>> _createSampleData() {
     final data = [
-      new TimeSeriesSales(new DateTime(2017, 9, 19), 5),
-      new TimeSeriesSales(new DateTime(2017, 9, 26), 25),
-      new TimeSeriesSales(new DateTime(2017, 10, 3), 100),
-      new TimeSeriesSales(new DateTime(2017, 10, 10), 75),
+      new TimeSeriesSales(new DateTime(2017, 6, 19), 5),
+      new TimeSeriesSales(new DateTime(2017, 6, 26), 25),
+      new TimeSeriesSales(new DateTime(2017, 7, 3), 76),
+      new TimeSeriesSales(new DateTime(2017, 8, 10), 75),
+      new TimeSeriesSales(new DateTime(2017, 9, 07), 5),
+      new TimeSeriesSales(new DateTime(2017, 10, 21), 50),
+      new TimeSeriesSales(new DateTime(2017, 10, 4), 15),
+      new TimeSeriesSales(new DateTime(2017, 11, 19), 28),
+      new TimeSeriesSales(new DateTime(2017, 12, 19), 10),
     ];
 
     return [
