@@ -9,7 +9,7 @@ class MatriculaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Registrar Matrícula')),
+      appBar: AppBar(title: Text('Historial Matrícula')),
       body: _crearListado(),
       drawer: AppDrawer(),
       floatingActionButton: _crearBoton(context),
@@ -48,8 +48,8 @@ class MatriculaPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               ListTile(
-                title: Text('${matricula.maestria}'),
-                subtitle: Text(matricula.periodoacademico),
+                title: Text('${matricula.maestria} - '+'Periodo: '+'${matricula.periodoacademico}'),
+                subtitle: Text('Ciclo: '+ matricula.ciclo),
                 onTap: () => Navigator.pushNamed(context, 'NewMatricula',
                     arguments: matricula),
               ),

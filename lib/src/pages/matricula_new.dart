@@ -102,7 +102,25 @@ class _MatriculaPageState extends State<MatriculaNew> {
   }
 
   Widget _crearMaestria() {
-    return DropdownButtonHideUnderline(
+      String _mestria;
+      return  DropdownButtonFormField<String>(
+            decoration: InputDecoration(labelText: 'Seleccionar Maestria'),
+            value: _mestria,
+            items: _maestriaList.map((value) {
+              return DropdownMenuItem<String>(
+                value: value.id,
+                child: Text(value.maestria),
+              );
+            }).toList(),
+            hint: Text(''),
+            onChanged: (value) {
+              setState(() {
+                matricula.maestria = value;
+              });
+            },
+          );
+
+    /*return DropdownButtonHideUnderline(
         child: DropdownButton<String>(
       isExpanded: true,
       hint: Text('Seleccionar Maestria'),
@@ -113,12 +131,17 @@ class _MatriculaPageState extends State<MatriculaNew> {
           child: Text(value.maestria),
         );
       }).toList(),
-      onChanged: (String newValue) {
+     // onChanged: (String newValue) {
+      //  setState(() {
+      //    matricula.maestria = value;
+      //  });
+      //},
+      onChanged: (value) {
         setState(() {
-          _maestria = newValue;
+          matricula.maestria = value;
         });
-      },
-    ));
+      },      
+    )); */
   }
 
   Widget _crearPeriodoacademico() {
@@ -151,7 +174,7 @@ class _MatriculaPageState extends State<MatriculaNew> {
             hint: Text(''),
             onChanged: (value) {
               setState(() {
-                _ratingController = value;
+                matricula.ciclo = value;
               });
             },
           );
@@ -175,12 +198,12 @@ class _MatriculaPageState extends State<MatriculaNew> {
       children: <Widget>[
         Text(dateFormat.format(selectedDate)),
         RaisedButton(
-          child: Text('Seleccionar Fecha'),
+          child: Text('Seleccionar Fecha Inicio'),
           onPressed: () async {
             showDateTimeDialog(context, initialDate: selectedDate,
                 onSelectedDate: (selectedDate) {
               setState(() {
-                this.selectedDate = selectedDate;
+                matricula.fechainicio = selectedDate.toString();
               });
             });
           },
@@ -188,8 +211,9 @@ class _MatriculaPageState extends State<MatriculaNew> {
       ],
     );    
   }
+
   Widget _crearFechafin() {
-    return TextFormField(
+  /*  return TextFormField(
       initialValue: matricula.fechafin,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(labelText: 'Fecha Fin'),
@@ -201,8 +225,27 @@ class _MatriculaPageState extends State<MatriculaNew> {
           return null;
         }
       },
-    );
+    ); */
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(dateFormat.format(selectedDate)),
+        RaisedButton(
+          child: Text('Seleccionar Fecha Fin'),
+          onPressed: () async {
+            showDateTimeDialog(context, initialDate: selectedDate,
+                onSelectedDate: (selectedDate) {
+              setState(() {
+                matricula.fechafin = selectedDate.toString();
+              });
+            });
+          },
+        ),
+      ],
+    );    
   }  
+  
   Widget _crearEstado() {
     return SwitchListTile(
       value: matricula.estado,
