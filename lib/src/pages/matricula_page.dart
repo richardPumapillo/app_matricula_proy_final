@@ -49,8 +49,8 @@ class MatriculaPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               ListTile(
-                title: Text('${matricula.maestria}'),
-                subtitle: Text(matricula.periodoacademico),
+                title: Text('${matricula.maestria} - '+'Periodo: '+'${matricula.periodoacademico}'),
+                subtitle: Text('Ciclo: '+ matricula.ciclo),
                 onTap: () => Navigator.pushNamed(context, 'NewMatricula',
                     arguments: matricula),
               ),
