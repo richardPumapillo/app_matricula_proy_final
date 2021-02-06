@@ -30,11 +30,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout" : MessageLookupByLibrary.simpleMessage("Esci"),
     "mastery" : MessageLookupByLibrary.simpleMessage("Master"),
     "masteryCourses" : MessageLookupByLibrary.simpleMessage("Master cursi"),
+    "masteryStudent" : MessageLookupByLibrary.simpleMessage("Master Studente"),
     "newAccount" : MessageLookupByLibrary.simpleMessage("Creare un nuovo account"),
     "options" : MessageLookupByLibrary.simpleMessage("Opzioni"),
     "password" : MessageLookupByLibrary.simpleMessage("Parola d\'ordine"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profilo"),
     "reports" : MessageLookupByLibrary.simpleMessage("Rapporti"),
-    "teachers" : MessageLookupByLibrary.simpleMessage("Insegnante")
+    "teachers" : MessageLookupByLibrary.simpleMessage("Insegnante"),
+    "viewProfile" : MessageLookupByLibrary.simpleMessage("Vedi Profilo")
   };
 }

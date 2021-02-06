@@ -13,6 +13,8 @@
     "reports": "Papporter",
     "mastery": "Kandidatgrad",
     "masteryCourses": "Mesterkurser",
-    "logout": "Gå ud"
+    "logout": "Gå ud",
+    "masteryStudent": "Kandidatstuderende",
+    "viewProfile": "See Profil"
 
 }

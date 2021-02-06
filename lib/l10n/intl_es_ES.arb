@@ -14,5 +14,6 @@
     "reports": "Reportes",
     "mastery": "Maestría",
     "masteryCourses": "Maestría-cursos",
-    "logout": "Salir"
+    "logout": "Salir",
+    "masteryStudent": "Alumno de Maestria"
 }

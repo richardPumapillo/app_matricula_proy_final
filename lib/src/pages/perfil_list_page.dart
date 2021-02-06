@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/perfil_model.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:app_matricula_proy_final/src/providers/perfil_provider.dart';
@@ -59,7 +60,7 @@ class _PerfilListPageState extends State<PerfilListPage> {
     print('fin valores');
 
     return Scaffold(
-      appBar: AppBar(title: Text('Principal | Und. Postgrado UNMSM')),
+      appBar: AppBar(title: Text('Principal | UNMSM')),
       drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(
@@ -95,7 +96,7 @@ class _PerfilListPageState extends State<PerfilListPage> {
           ),
         ),
         Text(
-          'Alumno de Maestria',
+          S.of(context).masteryStudent,
           style: TextStyle(
             fontFamily: 'SourceSansPro',
             color: Colors.teal.shade300,

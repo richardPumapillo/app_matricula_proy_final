@@ -39,7 +39,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Principal | Und. Postgrado UNMSM'),
+        title: Text('Principal | UNMSM'),
       ),
       drawer: AppDrawer(),
       body: SingleChildScrollView(

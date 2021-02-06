@@ -13,5 +13,8 @@
     "reports": "Rapporti",
     "mastery": "Master",
     "masteryCourses": "Master cursi",
-    "logout": "Esci"
+    "logout": "Esci",
+    "masteryStudent": "Master Studente",
+    "viewProfile": "Vedi Profilo"
+
 }

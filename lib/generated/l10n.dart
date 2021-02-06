@@ -184,6 +184,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Mastery Student`
+  String get masteryStudent {
+    return Intl.message(
+      'Mastery Student',
+      name: 'masteryStudent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Profile`
+  String get viewProfile {
+    return Intl.message(
+      'View Profile',
+      name: 'viewProfile',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
