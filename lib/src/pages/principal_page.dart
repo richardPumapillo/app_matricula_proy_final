@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/perfil_model.dart';
 import 'package:app_matricula_proy_final/src/providers/perfil_provider.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Principal | UNMSM'),
+        title: Text(S.of(context).profile),
       ),
       drawer: AppDrawer(),
       body: SingleChildScrollView(

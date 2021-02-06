@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password" : MessageLookupByLibrary.simpleMessage("Contraseña"),
     "profile" : MessageLookupByLibrary.simpleMessage("Perfil"),
     "reports" : MessageLookupByLibrary.simpleMessage("Reportes"),
-    "teachers" : MessageLookupByLibrary.simpleMessage("Profesores")
+    "teachers" : MessageLookupByLibrary.simpleMessage("Profesores"),
+    "viewProfile" : MessageLookupByLibrary.simpleMessage("Ver perfil")
   };
 }

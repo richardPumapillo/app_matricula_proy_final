@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/maestria_model.dart';
 import 'package:app_matricula_proy_final/src/providers/maestrias_provider.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Detalle Maestria a Curso'),
+        title: Text(S.of(context).masteryCourses),
         actions: <Widget>[],
       ),
       body: SingleChildScrollView(

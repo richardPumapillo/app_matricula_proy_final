@@ -60,7 +60,7 @@ class _PerfilListPageState extends State<PerfilListPage> {
     print('fin valores');
 
     return Scaffold(
-      appBar: AppBar(title: Text('Principal | UNMSM')),
+      appBar: AppBar(title: Text(S.of(context).profile)),
       drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(

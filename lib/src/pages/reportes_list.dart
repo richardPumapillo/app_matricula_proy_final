@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/docente_model.dart';
 import 'package:app_matricula_proy_final/src/models/reporte_model.dart';
 import 'package:app_matricula_proy_final/src/providers/reportes_provider.dart';
@@ -10,7 +11,7 @@ class ReportesListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Reportes')),
+      appBar: AppBar(title: Text(S.of(context).reports)),
       body: _crearListado(),
       drawer: AppDrawer(),
       //floatingActionButton: _crearBoton(context),
@@ -48,8 +49,8 @@ class ReportesListPage extends StatelessWidget {
               ListTile(
                 title: Text('${reporte.nombre}'),
                 subtitle: Text(reporte.descripcion),
-                onTap: () =>
-                    Navigator.pushNamed(context, reporte.reporte, arguments: reporte),
+                onTap: () => Navigator.pushNamed(context, reporte.reporte,
+                    arguments: reporte),
               ),
             ],
           ),

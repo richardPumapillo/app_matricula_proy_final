@@ -15,5 +15,6 @@
     "mastery": "Maestría",
     "masteryCourses": "Maestría-cursos",
     "logout": "Salir",
-    "masteryStudent": "Alumno de Maestria"
+    "masteryStudent": "Alumno de Maestria",
+    "viewProfile": "Ver perfil"
 }
