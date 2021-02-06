@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/matricula_model.dart';
 import 'package:app_matricula_proy_final/src/providers/matricula_provider.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,6 @@ import 'package:intl/intl.dart';
 import 'package:app_matricula_proy_final/src/widget/notifcation_dialog.dart';
 import 'package:app_matricula_proy_final/src/models/maestria_model.dart';
 import 'package:app_matricula_proy_final/src/providers/maestrias_provider.dart';
-import 'package:app_matricula_proy_final/src/models/producto_model.dart';
 import 'package:app_matricula_proy_final/src/providers/productos_provider.dart';
 
 class MatriculaNew extends StatefulWidget {
@@ -29,7 +29,6 @@ class _MatriculaPageState extends State<MatriculaNew> {
   DateTime selectedDate = DateTime.now();
   final DateFormat dateFormat = DateFormat('yyyy-MM-dd');
 
-
   @override
   void initState() {
     super.initState();
@@ -47,7 +46,7 @@ class _MatriculaPageState extends State<MatriculaNew> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Registrar Matricula'),
+        title: Text(S.of(context).enrollment),
         actions: <Widget>[],
       ),
       body: SingleChildScrollView(
@@ -63,8 +62,8 @@ class _MatriculaPageState extends State<MatriculaNew> {
                 _crearPeriodoacademico(),
                 _crearCiclo(),
                 _crearFechainicio(),
-                _crearFechafin(),  
-                _crearEstado(),             
+                _crearFechafin(),
+                _crearEstado(),
                 _crearBoton()
               ],
             ),
@@ -145,7 +144,7 @@ class _MatriculaPageState extends State<MatriculaNew> {
   }
 
   Widget _crearPeriodoacademico() {
-   return TextFormField(
+    return TextFormField(
       initialValue: matricula.periodoacademico,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(labelText: 'Periodo Académico'),
@@ -157,8 +156,9 @@ class _MatriculaPageState extends State<MatriculaNew> {
           return null;
         }
       },
-    ); 
+    );
   }
+
   Widget _crearCiclo() {
   
       String _ratingController;
@@ -179,8 +179,9 @@ class _MatriculaPageState extends State<MatriculaNew> {
             },
           );
   }
+
   Widget _crearFechainicio() {
-   /* return TextFormField(
+    /* return TextFormField(
       initialValue: matricula.fechainicio,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(labelText: 'Fecha Inicio'),
@@ -209,7 +210,7 @@ class _MatriculaPageState extends State<MatriculaNew> {
           },
         ),
       ],
-    );    
+    );
   }
 
   Widget _crearFechafin() {
@@ -280,9 +281,7 @@ class _MatriculaPageState extends State<MatriculaNew> {
   }
 
   void _addCurso() async {
-
-      Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
-
+    Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
   }
 
   void _submit() async {
@@ -299,11 +298,11 @@ class _MatriculaPageState extends State<MatriculaNew> {
     } else {
       matriculaProvider.editarMatricula(matricula);
     }
-    
-   Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
+
+    Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
     // setState(() {_guardando = false; });
     mostrarSnackbar('Registro guardado');
-    
+
     Navigator.pop(context);
   }
 

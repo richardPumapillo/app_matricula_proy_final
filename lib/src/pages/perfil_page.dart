@@ -1,4 +1,5 @@
 import 'package:app_matricula_proy_final/src/models/perfil_model.dart';
+import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:app_matricula_proy_final/src/providers/perfil_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -16,10 +17,12 @@ class _PerfilPageState extends State<PerfilPage> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final perfilProvider = new PerfilProvider();
+  final _prefs = new PreferenciasUsuario();
 
   PerfilModel perfil = new PerfilModel();
   bool _guardando = false;
 
+  static List<PerfilModel> _perfilList = <PerfilModel>[];
   @override
   Widget build(BuildContext context) {
     final PerfilModel perfData = ModalRoute.of(context).settings.arguments;
@@ -127,7 +130,8 @@ class _PerfilPageState extends State<PerfilPage> {
       textColor: Colors.white,
       label: Text('Regresar'),
       icon: Icon(Icons.reply),
-      onPressed: _regresarPerfil,
+      // onPressed: _regresarPerfil,
+      onPressed: () => Navigator.pushReplacementNamed(context, 'Principal'),
     );
   }
 
@@ -140,21 +144,46 @@ class _PerfilPageState extends State<PerfilPage> {
       _guardando = true;
     });
 
-    if (perfil.id == null) {
+    // perfil.id=
+    print('desde perfil page');
+    // PerfilModel perfilaux = await perfilProvider.cargarPerfil();
+
+    print(perfil.id);
+
+    if (perfil.id == '' || perfil.id == null) {
       perfilProvider.crearPerfil(perfil);
     } else {
       perfilProvider.editarPerfil(perfil);
     }
+
+    // if (perfil.id == null) {
+    //   perfilProvider.crearPerfil(perfil);
+    // } else {
+    //   perfilProvider.editarPerfil(perfil);
+    // }
 
     // setState(() {_guardando = false; });
     mostrarSnackbar('Registro guardado');
 
     // Navigator.pop(context);
   }
-  
-  void _regresarPerfil() async {
-      Navigator.pushReplacementNamed(context, 'Principal');
-  }
+
+  // void _cargarPerfiles() async {
+  //   final List<PerfilModel> _perfilArray =
+  //       await perfilProvider.cargarPerfiles();
+  //   setState(() {
+  //     _perfilList = _perfilArray;
+  //   });
+  // }
+
+  // void _cargarPerfile() async {
+  //   final PerfilModel _perfil = await perfilProvider.cargarPerfil();
+  //   setState(() {
+  //     perfil.idUsuario = _perfil.idUsuario;
+  //     perfil.nombre = _perfil.nombre;
+  //     perfil.apellidoPaterno = _perfil.apellidoPaterno;
+  //   });
+  // }
 
   void mostrarSnackbar(String mensaje) {
     final snackbar = SnackBar(

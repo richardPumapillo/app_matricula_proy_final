@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:app_matricula_proy_final/src/models/producto_model.dart';
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cursos')),
+      appBar: AppBar(title: Text(S.of(context).courses)),
       body: _crearListado(),
       drawer: AppDrawer(),
       floatingActionButton: _crearBoton(context),

@@ -47,7 +47,11 @@ class LoginPage extends StatelessWidget {
                 ]),
             child: Column(
               children: <Widget>[
-                Icon(Icons.school, color: Color.fromRGBO(12, 104, 222, 1.0), size: 30.0,),
+                Icon(
+                  Icons.school,
+                  color: Color.fromRGBO(12, 104, 222, 1.0),
+                  size: 30.0,
+                ),
                 Text((S.of(context).entry), style: TextStyle(fontSize: 20.0)),
                 SizedBox(height: 60.0),
                 _crearEmail(bloc),
@@ -59,7 +63,10 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           FlatButton(
-            child: Text(S.of(context).newAccount, style: TextStyle(color: Colors.blue, fontSize: 16),),
+            child: Text(
+              S.of(context).newAccount,
+              style: TextStyle(color: Colors.blue, fontSize: 16),
+            ),
             onPressed: () =>
                 Navigator.pushReplacementNamed(context, 'registro'),
           ),
@@ -121,7 +128,10 @@ class LoginPage extends StatelessWidget {
         return RaisedButton(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-              child: Text(S.of(context).login, style: TextStyle(fontSize: 16),),
+              child: Text(
+                S.of(context).login,
+                style: TextStyle(fontSize: 16),
+              ),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
@@ -153,13 +163,13 @@ class LoginPage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage("assets/unmsm2021.png"),
             fit: BoxFit.cover,
-          ),        
+          ),
           gradient: LinearGradient(colors: <Color>[
-        // Color.fromRGBO(63, 63, 156, 1.0),
-        Color.fromRGBO(12, 104, 222, 1.0),
-        // Color.fromRGBO(90, 70, 178, 1.0)
-        Color.fromRGBO(39, 109, 199, 1.0)
-      ])),
+            // Color.fromRGBO(63, 63, 156, 1.0),
+            Color.fromRGBO(12, 104, 222, 1.0),
+            // Color.fromRGBO(90, 70, 178, 1.0)
+            Color.fromRGBO(39, 109, 199, 1.0)
+          ])),
     );
 
     final circulo = Container(
@@ -182,25 +192,30 @@ class LoginPage extends StatelessWidget {
           padding: EdgeInsets.only(top: 80.0),
           child: Column(
             children: <Widget>[
-              Icon(Icons.school, color: Colors.white, size: 100.0,),
+              Icon(
+                Icons.school,
+                color: Colors.white,
+                size: 100.0,
+              ),
               SizedBox(height: 10.0, width: double.infinity),
-              Text('App Matrícula UNMSM',
+              Text('App UNMSM',
                   style: TextStyle(
-                    color: Colors.white, 
-                    fontSize: 30.0, fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
                     shadows: [
-                          Shadow(
-                            blurRadius: 10.0,
-                            color: Colors.black,
-                            offset: Offset(5.0, 5.0),
-                          ),                      
-                          Shadow(
-                            blurRadius: 10.0,
-                            color: Colors.black,
-                            offset: Offset(-5.0, -5.0),
-                          ),
-                      ],                    
-                    ))
+                      Shadow(
+                        blurRadius: 10.0,
+                        color: Colors.black,
+                        offset: Offset(5.0, 5.0),
+                      ),
+                      Shadow(
+                        blurRadius: 10.0,
+                        color: Colors.black,
+                        offset: Offset(-5.0, -5.0),
+                      ),
+                    ],
+                  ))
             ],
           ),
         )

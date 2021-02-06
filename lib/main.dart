@@ -1,3 +1,8 @@
+import 'package:app_matricula_proy_final/src/pages/perfil_list_page.dart';
+import 'package:app_matricula_proy_final/src/pages/reportes/bar_chart_matricula.dart';
+import 'package:app_matricula_proy_final/src/pages/reportes/donut_chart_matricula.dart';
+import 'package:app_matricula_proy_final/src/pages/reportes/time_chart_matricula.dart';
+import 'package:app_matricula_proy_final/src/pages/reportes_list.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_matricula_proy_final/src/pages/docente_list.dart';
@@ -16,7 +21,6 @@ import 'package:app_matricula_proy_final/src/pages/producto_page.dart';
 import 'package:app_matricula_proy_final/src/pages/registro_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_page.dart';
 import 'package:app_matricula_proy_final/src/pages/matricula_new.dart';
-import 'package:app_matricula_proy_final/src/pages/principal_page.dart';
 import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -56,7 +60,12 @@ class MyApp extends StatelessWidget {
               MaestriaCursoPageNew(),
           'Matricula': (BuildContext context) => MatriculaPage(),
           'NewMatricula': (BuildContext context) => MatriculaNew(),
-          'Principal': (BuildContext context) => PrincipalPage()  
+          'Principal': (BuildContext context) => PerfilListPage(),
+          'Reportes': (BuildContext context) => ReportesListPage(),
+          'ReportesMatriculas': (BuildContext context) => BarChartMatriculas(),
+          'DonutMatriculas': (BuildContext context) => DonutAutoLabelChart.withSampleData(),
+          'TimeMatriculas': (BuildContext context) => SimpleTimeSeriesChart.withSampleData()
+          
         },
         localizationsDelegates: [
           S.delegate,

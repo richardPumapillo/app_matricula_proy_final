@@ -26,15 +26,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "enrollment" : MessageLookupByLibrary.simpleMessage("Matrícula"),
     "entry" : MessageLookupByLibrary.simpleMessage("Ingreso"),
     "gotAccount" : MessageLookupByLibrary.simpleMessage("¿Ya tienes cuenta? Ingresa"),
-    "login" : MessageLookupByLibrary.simpleMessage("Ingresar"),
+    "login" : MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
     "logout" : MessageLookupByLibrary.simpleMessage("Salir"),
     "mastery" : MessageLookupByLibrary.simpleMessage("Maestría"),
     "masteryCourses" : MessageLookupByLibrary.simpleMessage("Maestría-cursos"),
+    "masteryStudent" : MessageLookupByLibrary.simpleMessage("Alumno de Maestria"),
     "newAccount" : MessageLookupByLibrary.simpleMessage("Crear una nueva cuenta"),
     "options" : MessageLookupByLibrary.simpleMessage("Opciones"),
     "password" : MessageLookupByLibrary.simpleMessage("Contraseña"),
     "profile" : MessageLookupByLibrary.simpleMessage("Perfil"),
     "reports" : MessageLookupByLibrary.simpleMessage("Reportes"),
-    "teachers" : MessageLookupByLibrary.simpleMessage("Profesores")
+    "teachers" : MessageLookupByLibrary.simpleMessage("Profesores"),
+    "viewProfile" : MessageLookupByLibrary.simpleMessage("Ver perfil")
   };
 }

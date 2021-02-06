@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/MaestriaCurso_model.dart';
 import 'package:app_matricula_proy_final/src/providers/MaestriasCursos_provider.dart';
 import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
@@ -9,7 +10,7 @@ class MaestriasCursoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('detalle Maestria y Curso')),
+      appBar: AppBar(title: Text(S.of(context).masteryCourses)),
       body: _crearListado(),
       drawer: AppDrawer(),
       floatingActionButton: _crearBoton(context),

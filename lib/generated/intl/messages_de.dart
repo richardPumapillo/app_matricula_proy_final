@@ -30,11 +30,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout" : MessageLookupByLibrary.simpleMessage("Gå ud"),
     "mastery" : MessageLookupByLibrary.simpleMessage("Kandidatgrad"),
     "masteryCourses" : MessageLookupByLibrary.simpleMessage("Mesterkurser"),
+    "masteryStudent" : MessageLookupByLibrary.simpleMessage("Kandidatstuderende"),
     "newAccount" : MessageLookupByLibrary.simpleMessage("Oprette en ny konto"),
     "options" : MessageLookupByLibrary.simpleMessage("Muligheder"),
     "password" : MessageLookupByLibrary.simpleMessage("Adgangskode"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profil"),
     "reports" : MessageLookupByLibrary.simpleMessage("Papporter"),
-    "teachers" : MessageLookupByLibrary.simpleMessage("Lærere")
+    "teachers" : MessageLookupByLibrary.simpleMessage("Lærere"),
+    "viewProfile" : MessageLookupByLibrary.simpleMessage("See Profil")
   };
 }

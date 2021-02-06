@@ -14,5 +14,7 @@
     "reports": "Reports",
     "mastery": "Mastery",
     "masteryCourses": "Mastery-courses",
-    "logout": "Logout"
+    "logout": "Logout",
+    "masteryStudent": "Mastery Student",
+    "viewProfile": "View Profile"
 }

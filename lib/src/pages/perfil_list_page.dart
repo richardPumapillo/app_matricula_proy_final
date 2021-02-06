@@ -1,71 +1,81 @@
 import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/perfil_model.dart';
+import 'package:app_matricula_proy_final/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:app_matricula_proy_final/src/providers/perfil_provider.dart';
+import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
 import 'package:flutter/material.dart';
 
-import 'package:app_matricula_proy_final/src/bloc/provider.dart';
-import 'package:app_matricula_proy_final/src/widget/app_drawer.dart';
-
-class PrincipalPage extends StatefulWidget {
-  PrincipalPage({Key key}) : super(key: key);
+class PerfilListPage extends StatefulWidget {
+  PerfilListPage({Key key}) : super(key: key);
 
   @override
-  _PrincipalPageState createState() => _PrincipalPageState();
+  _PerfilListPageState createState() => _PerfilListPageState();
 }
 
-class _PrincipalPageState extends State<PrincipalPage> {
+class _PerfilListPageState extends State<PerfilListPage> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final perfilProvider = new PerfilProvider();
+  final _prefs = new PreferenciasUsuario();
 
   PerfilModel perfil = new PerfilModel();
   bool _guardando = false;
-/*
+
+  static List<PerfilModel> _perfilList = <PerfilModel>[];
+
   @override
   void initState() {
     super.initState();
-    _cargarUsuario();
-    //_cargarCiclos();
+    _cargarPerfiles();
   }
-*/
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of(context);
-    final PerfilModel perfData = ModalRoute.of(context).settings.arguments;
-    if (perfData != null) {
-      perfil = perfData;
-    }
+    print('perfil_page -_perfilList');
+    // print(_perfilList);
+    _perfilList.forEach((element) {
+      if (element.idUsuario == _prefs.idUsuario) {
+        print('esta es');
+        print(element.nombre);
+        // setState(() {
+        //   perfil = element;
+        // });
+        setState(() {
+          perfil = element;
+          _prefs.nombreUsuario = element.nombre + ' ' + element.apellidoPaterno;
+        });
+        // perfil.nombre = element.nombre;
+      } else {
+        perfil.idUsuario = _prefs.idUsuario;
+        _prefs.nombreUsuario = '';
+      }
+    });
+
+    print('valor de perfil');
+    print(perfil.nombre);
+    print(perfil.apellidoPaterno);
+    print(perfil.apellidoMaterno);
+    print(perfil.idUsuario);
+    print(perfil.id);
+    print('fin valores');
 
     return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(S.of(context).profile),
-      ),
+      appBar: AppBar(title: Text(S.of(context).profile)),
       drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.all(15.0),
-            child: Form(
-              key: formKey,
-              child: Column(
-                children: <Widget>[_perfil(), _crearBoton()],
-              ),
-            )),
+          padding: EdgeInsets.all(15.0),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: <Widget>[_perfil(), _crearBoton()],
+            ),
+          ),
+        ),
       ),
+      // body: _crearBoton(),
     );
   }
-
-/*
- List<PerfilModel> _perfilList = <PerfilModel>[];
-  String _usuario;
-  void _cargarUsuario() async {
-    final List<PerfilModel> _list = await perfilProvider.cargarPerfil();
-    setState(() {
-      _perfilList = _list;
-    });
-  }
-*/
 
   Widget _perfil() {
     return Column(
@@ -76,7 +86,8 @@ class _PrincipalPageState extends State<PrincipalPage> {
           backgroundImage: AssetImage('assets/ing.jpg'),
         ),
         Text(
-          'Waldo Trebejo', //perfil.nombre . aqui se debe obtener datos del usuario logueado
+          _prefs
+              .nombreUsuario, //perfil.nombre . aqui se debe obtener datos del usuario logueado
           style: TextStyle(
             fontFamily: 'Pacifico',
             fontSize: 40.0,
@@ -85,7 +96,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
           ),
         ),
         Text(
-          'Alumno de Maestria',
+          S.of(context).masteryStudent,
           style: TextStyle(
             fontFamily: 'SourceSansPro',
             color: Colors.teal.shade300,
@@ -131,7 +142,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
               Icons.email,
               color: Colors.teal,
             ),
-            title: Text('alumno.upg@unmsm.edu.pe',
+            title: Text(_prefs.correo,
                 style: TextStyle(
                   color: Colors.teal.shade900,
                   fontFamily: 'SourceSansPro',
@@ -143,28 +154,23 @@ class _PrincipalPageState extends State<PrincipalPage> {
     );
   }
 
+  void _cargarPerfiles() async {
+    final List<PerfilModel> _perfilArray =
+        await perfilProvider.cargarPerfiles();
+    setState(() {
+      _perfilList = _perfilArray;
+    });
+  }
+
   Widget _crearBoton() {
     return RaisedButton.icon(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      color: Colors.green[700],
+      color: Colors.blue[700],
       textColor: Colors.white,
-      label: Text('EDITAR PERFIL'),
-      icon: Icon(Icons.edit),
+      label: Text('ver Perfil'),
+      icon: Icon(Icons.save),
       onPressed: () =>
           Navigator.pushNamed(context, 'perfil', arguments: perfil),
     );
-  }
-
-  void _editarPerfil() async {
-    Navigator.pushReplacementNamed(context, 'perfil');
-  }
-
-  void mostrarSnackbar(String mensaje) {
-    final snackbar = SnackBar(
-      content: Text(mensaje),
-      duration: Duration(milliseconds: 1500),
-    );
-
-    scaffoldKey.currentState.showSnackBar(snackbar);
   }
 }

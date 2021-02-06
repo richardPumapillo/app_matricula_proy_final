@@ -1,3 +1,4 @@
+import 'package:app_matricula_proy_final/generated/l10n.dart';
 import 'package:app_matricula_proy_final/src/models/maestria_model.dart';
 import 'package:app_matricula_proy_final/src/providers/maestrias_provider.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +47,9 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Detalle Maestria a Curso'),
+        title: Text(S.of(context).masteryCourses),
         actions: <Widget>[],
       ),
-      drawer: AppDrawer(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(15.0),
@@ -98,7 +98,7 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
       value: maestriacurso.maestriaid,
       items: _citiesList.map((value) {
         return DropdownMenuItem<String>(
-          value: value.id,
+          value: value.maestria,
           child: Text(value.maestria),
         );
       }).toList(),
@@ -127,7 +127,7 @@ class _DocentePageState extends State<MaestriaCursoPageNew> {
       value: maestriacurso.cursoid,
       items: _cursoList.map((value) {
         return DropdownMenuItem<String>(
-          value: value.id,
+          value: value.titulo,
           child: Text(value.titulo),
         );
       }).toList(),

@@ -38,7 +38,8 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.app_registration),
-            title: Text(S.of(context).enrollment, style: TextStyle(fontSize: 16)),
+            title:
+                Text(S.of(context).enrollment, style: TextStyle(fontSize: 16)),
             onTap: () {
               Navigator.pushReplacementNamed(context, 'Matricula');
             },
@@ -48,7 +49,7 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.list_alt),
             title: Text(S.of(context).reports, style: TextStyle(fontSize: 16)),
             onTap: () {
-              //Navigator.of(context).pushReplacementNamed(UserProductsScreen.routeName);
+              Navigator.pushReplacementNamed(context, 'Reportes');
             },
           ),
           Divider(),
@@ -62,7 +63,8 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.edit),
-            title: Text(S.of(context).masteryCourses, style: TextStyle(fontSize: 16)),
+            title: Text(S.of(context).masteryCourses,
+                style: TextStyle(fontSize: 16)),
             onTap: () {
               Navigator.pushReplacementNamed(context, 'Maestria_Cursos');
             },
@@ -72,7 +74,8 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.exit_to_app),
             title: Text(S.of(context).logout, style: TextStyle(fontSize: 16)),
             onTap: () {
-              Navigator.of(context).pop();
+              // Navigator.of(context).pop();
+              Navigator.pushReplacementNamed(context, 'login');
               // Provider.of<Auth>(context, listen: false).logout();
             },
           ),
